@@ -36,3 +36,27 @@ export const logUser = async (email, password) => {
     throw new Error('could not login the user', error);
   }
 };
+
+export const getUser = async () => {
+  // http://localhost:4000/user/id
+  const baseURL = process.env.REACT_APP_API_URL;
+  const domain = 'user';
+  const query = 'id';
+  const token = localStorage.getItem('token');
+  const msg = 'No se encuentra el token';
+
+  if (!token) {
+    return msg;
+  }
+
+  const headContent = { Authorization: `Bearer ${token}` };
+
+  try {
+    const response = await axios.get(`${baseURL}/${domain}/${query}`, {
+      headers: headContent
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error('could not get the user data', error);
+  }
+};
