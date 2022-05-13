@@ -1,15 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { getCommentsByPost } from './services/comment.services';
 
 function App() {
-  useEffect(() => {
-    getCommentsByPost('627e05c959e3e7ef42135559').then((response) =>
-      console.log(response)
-    );
-  }, []);
-
   return (
     <div className="App">
       <header className="App-header">
