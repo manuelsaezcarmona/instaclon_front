@@ -49,12 +49,37 @@ export const getUser = async () => {
     return msg;
   }
 
-  const headContent = { Authorization: `Bearer ${token}` };
+  const headers = { Authorization: `Bearer ${token}` };
 
   try {
     const response = await axios.get(`${baseURL}/${domain}/${query}`, {
-      headers: headContent
+      headers
     });
+    return response.data;
+  } catch (error) {
+    throw new Error('could not get the user data', error);
+  }
+};
+
+export const updateUser = async (username, email) => {
+  // http://localhost:4000/user
+  const baseURL = process.env.REACT_APP_API_URL;
+  const domain = 'user';
+  const token = localStorage.getItem('token');
+  const msg = 'No se encuentra el token';
+
+  if (!token) {
+    return msg;
+  }
+  const headers = { Authorization: `Bearer ${token}` };
+  try {
+    const response = await axios.patch(
+      `${baseURL}/${domain}/`,
+      { username, email },
+      {
+        headers
+      }
+    );
     return response.data;
   } catch (error) {
     throw new Error('could not get the user data', error);
