@@ -49,11 +49,11 @@ export const getUser = async () => {
     return msg;
   }
 
-  const headContent = { Authorization: `Bearer ${token}` };
+  const headers = { Authorization: `Bearer ${token}` };
 
   try {
     const response = await axios.get(`${baseURL}/${domain}/${query}`, {
-      headers: headContent
+      headers
     });
     return response.data;
   } catch (error) {
@@ -71,13 +71,13 @@ export const updateUser = async (username, email) => {
   if (!token) {
     return msg;
   }
-  const headContent = { Authorization: `Bearer ${token}` };
+  const headers = { Authorization: `Bearer ${token}` };
   try {
     const response = await axios.patch(
       `${baseURL}/${domain}/`,
       { username, email },
       {
-        headers: headContent
+        headers
       }
     );
     return response.data;

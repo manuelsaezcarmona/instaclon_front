@@ -11,7 +11,7 @@ export const addComment = async (content, postID) => {
   if (!token) {
     return msg;
   }
-  const headContent = { Authorization: `Bearer ${token}` };
+  const headers = { Authorization: `Bearer ${token}` };
   try {
     const response = await axios.post(
       `${baseURL}/${domain}/${query}`,
@@ -19,7 +19,7 @@ export const addComment = async (content, postID) => {
         content,
         postID
       },
-      { headers: headContent }
+      { headers }
     );
     return response.data;
   } catch (error) {
@@ -38,10 +38,10 @@ export const deleteComment = async (commentid) => {
   if (!token) {
     return msg;
   }
-  const headContent = { Authorization: `Bearer ${token}` };
+  const headers = { Authorization: `Bearer ${token}` };
   try {
     const response = await axios.delete(`${baseURL}/${domain}/${query}`, {
-      headers: headContent
+      headers
     });
     return response.data;
   } catch (error) {
@@ -60,13 +60,13 @@ export const updateComment = async (commentid, content) => {
   if (!token) {
     return msg;
   }
-  const headContent = { Authorization: `Bearer ${token}` };
+  const headers = { Authorization: `Bearer ${token}` };
   try {
     const response = await axios.patch(
       `${baseURL}/${domain}/${query}`,
       { content },
       {
-        headers: headContent
+        headers
       }
     );
     return response.data;
@@ -86,14 +86,14 @@ export const getCommentsByPost = async (postID) => {
   if (!token) {
     return msg;
   }
-  const headContent = { Authorization: `Bearer ${token}` };
+  const headers = { Authorization: `Bearer ${token}` };
   try {
-    const response = await axios.get(
-      `${baseURL}/${domain}`,
-      { headers: headContent },
-      { postID }
-    );
-    return response.data;
+    const response = await fetch(`${baseURL}/${domain}/${postID}`, {
+      method: 'GET',
+      headers
+    });
+
+    return response.json();
   } catch (error) {
     throw new Error('Could not get the comments by post');
   }

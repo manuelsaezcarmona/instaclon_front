@@ -11,13 +11,13 @@ export const addPost = async (imageURL, text) => {
   if (!token) {
     return msg;
   }
-  const headContent = { Authorization: `Bearer ${token}` };
+  const headers = { Authorization: `Bearer ${token}` };
   try {
     const response = await axios.post(
       `${baseURL}/${domain}/${query}`,
       { imageURL, text },
       {
-        headers: headContent
+        headers
       }
     );
     return response.data;
@@ -37,10 +37,10 @@ export const deletePost = async (postid) => {
   if (!token) {
     return msg;
   }
-  const headContent = { Authorization: `Bearer ${token}` };
+  const headers = { Authorization: `Bearer ${token}` };
   try {
     const response = await axios.delete(`${baseURL}/${domain}/${query}`, {
-      headers: headContent
+      headers
     });
     return response.data;
   } catch (error) {
@@ -59,14 +59,14 @@ export const updatePost = async (postid, imageURL, text) => {
   if (!token) {
     return msg;
   }
-  const headContent = { Authorization: `Bearer ${token}` };
+  const headers = { Authorization: `Bearer ${token}` };
 
   try {
     const response = await axios.patch(
       `${baseURL}/${domain}/${query}`,
       { imageURL, text },
       {
-        headers: headContent
+        headers
       }
     );
     return response.data;
@@ -87,10 +87,10 @@ export const getPosts = async () => {
   if (!token) {
     return msg;
   }
-  const headContent = { Authorization: `Bearer ${token}` };
+  const headers = { Authorization: `Bearer ${token}` };
   try {
     const response = await axios.get(`${baseURL}/${domain}`, {
-      headers: headContent
+      headers
     });
     return response.data;
   } catch (error) {
