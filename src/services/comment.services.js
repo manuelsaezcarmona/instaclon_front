@@ -74,3 +74,27 @@ export const updateComment = async (commentid, content) => {
     throw new Error('could not update the comment');
   }
 };
+
+export const getCommentsByPost = async (postID) => {
+  // http://localhost:4000/comment/
+  const baseURL = process.env.REACT_APP_API_URL;
+  const domain = 'comment';
+
+  const token = localStorage.getItem('token');
+  const msg = 'No se encuentra el token';
+
+  if (!token) {
+    return msg;
+  }
+  const headContent = { Authorization: `Bearer ${token}` };
+  try {
+    const response = await axios.get(
+      `${baseURL}/${domain}`,
+      { headers: headContent },
+      { postID }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error('Could not get the comments by post');
+  }
+};
