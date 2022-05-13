@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { addComment } from './services/comment.services';
+import { updateComment } from './services/comment.services';
 
 function App() {
   useEffect(() => {
-    addComment('Comentario desde React', '627e05c959e3e7ef42135559').then(
-      (response) => console.log(response)
-    );
+    updateComment(
+      '627e2a024162cfd473dc8149',
+      'Actualizando comentario desde la App de React'
+    ).then((response) => console.log(response));
   }, []);
 
   return (
