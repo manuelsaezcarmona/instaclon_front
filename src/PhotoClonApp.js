@@ -5,10 +5,8 @@ import AppRouter from './routers/AppRouter';
 
 export function PhotoClonApp() {
   return (
-    <div>
-      <Provider store={configureStore()}>
-        <AppRouter />
-      </Provider>
-    </div>
+    <Provider store={configureStore()}>
+      <AppRouter />
+    </Provider>
   );
 }

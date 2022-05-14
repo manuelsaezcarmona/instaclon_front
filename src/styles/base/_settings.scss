@@ -1,3 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+@font-face {
+  font-family: 'FontSpring';
+  font-weight: normal;
+  font-style: normal;
+  src: url(../../assets/Fontspring-DEMO-blue_vinyl_regular_ps_ot.otf)
+    format('opentype');
+}
+
+@font-face {
+  font-family: 'FontSpring';
+  font-weight: bold;
+  font-style: normal;
+  src: url(../../assets/Fontspring-DEMO-blue_vinyl_bold_ps_ot.otf)
+    format('opentype');
+}
+
+// Fonts
+$principal-font: Helvetica, 'Roboto', sans-serif, 'Oxygen', 'Ubuntu',
+  'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue';
+$logofont: 'FontSpring';
 // Colors
 
-$primary: #5c62c5;
+$botonprimary: #4f84e7;
+$white-background: #f2f6f9;
+$white-oficial-background: #fafafa;
+$colorborder: #ebebeb;
+
+$black-dark: #262626;
+$gray-normal: #979797;
