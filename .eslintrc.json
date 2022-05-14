@@ -26,6 +26,8 @@
     "no-param-reassign": "off",
     "import/prefer-default-export": "off",
     "function-paren-newline": "off",
-    "default-param-last": "off"
+    "default-param-last": "off",
+    "react/prop-types": "off",
+    "react/jsx-wrap-multilines": "off"
   }
 }

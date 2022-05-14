@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function postScreen() {
+export function MainScreen() {
   return (
     <div>
-      <h1>postScreen</h1>
+      <h1>MainScreen</h1>
     </div>
   );
 }

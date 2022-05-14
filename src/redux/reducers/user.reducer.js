@@ -9,7 +9,8 @@ const initialState = {
     comments: [],
     createdAt: 'Objeto Date',
     updatedAt: 'Objeto Date'
-  }
+  },
+  logged: true
 };
 
 export const userReducer = (state = initialState, action) => {

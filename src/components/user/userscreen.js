@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function userScreen() {
+export function UserScreen() {
   return (
     <div>
       <h1>userScreen</h1>

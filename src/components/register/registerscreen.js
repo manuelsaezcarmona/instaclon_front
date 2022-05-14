@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function registerScreen() {
+export function RegisterScreen() {
   return (
     <div>
-      <h1>registerScreen</h1>
+      <h1>RegisterScreen</h1>
     </div>
   );
 }
