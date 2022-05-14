@@ -1,0 +1,10 @@
+@import './base/modern-normalize';
+@import './base/settings';
+
+body {
+  background-color: aquamarine;
+}
+
+h1 {
+  color: $primary;
+}
