@@ -1,10 +1,5 @@
-@import './base/modern-normalize';
+@import './base/normalize';
 @import './base/settings';
 
-body {
-  background-color: aquamarine;
-}
-
-h1 {
-  color: $primary;
-}
+// Components
+@import './components/loginscreen';

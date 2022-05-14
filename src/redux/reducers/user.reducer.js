@@ -4,13 +4,14 @@ const initialState = {
   user: {
     id: 'unid',
     username: 'un nombre',
-    pasword: 'un password ¿necesario?',
+    email: 'email@manu.com',
+    pasword: '123456',
     posts: [],
     comments: [],
     createdAt: 'Objeto Date',
     updatedAt: 'Objeto Date'
   },
-  logged: true
+  logged: false
 };
 
 export const userReducer = (state = initialState, action) => {

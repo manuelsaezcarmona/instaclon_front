@@ -10,8 +10,7 @@ import { PublicRoute } from './PublicRoute';
 
 export default function AppRouter() {
   return (
-    <div>
-      <h1>AppRouter</h1>
+    <div className="PhotoClonApp">
       <Router>
         <Routes>
           <Route
