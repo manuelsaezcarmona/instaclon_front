@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function loginScreen() {
+export function LoginScreen() {
   return (
     <div>
       <h1>loginScreen</h1>
