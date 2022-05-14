@@ -1,14 +1,5 @@
 @import './base/normalize';
 @import './base/settings';
 
-input {
-  font-family: $principal-font;
-}
-html {
-  background-color: $white-background;
-}
-.logo {
-  font-family: $logofont;
-  font-weight: normal;
-  color: $black-dark;
-}
+// Components
+@import './components/loginscreen';
