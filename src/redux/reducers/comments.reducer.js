@@ -7,8 +7,8 @@ const initialState = {
       content: 'Un comentario',
       userIDcomment: 'ObjectID del usuario',
       postIDcomment: 'ObjectID del post',
-      createdAt: 'Objeto Date',
-      updatedAt: 'Objeto Date'
+      createdAt: '2022-05-12T07:28:47.329+00:00',
+      updatedAt: '2022-05-13T10:31:18.226+00:00'
     }
   ]
 };
