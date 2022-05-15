@@ -30,6 +30,10 @@ $blueprimary: #4b91f7;
 $bluenormal: #367af6;
 $bluedarktransp: rgba(54, 122, 246, 0.25);
 
+// Effects
+$shadow-container: inset 0 0 0.5em rgba(0, 0, 0, 0.1),
+  0.2em 0.2em 0.5em rgba(0, 0, 0, 0.2);
+
 * {
   font-family: $principal-font;
   color: $black-dark;
@@ -44,4 +48,44 @@ html {
   font-weight: normal;
   letter-spacing: 0.05em;
   color: $black-dark;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  width: 80%;
+  font-size: 0.9rem;
+  color: #fff;
+  background: linear-gradient(180deg, $blueprimary 0%, $bluenormal 100%);
+  background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px $bluedarktransp,
+    inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn:focus {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2),
+    0px 0.5px 1.5px rgba(54, 122, 246, 0.25),
+    0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+
+.inputText {
+  height: 4vh;
+  width: 80%;
+  font-size: 0.75rem;
+  margin: 1vh 0vh;
+  padding: 5px;
+  border: solid 1px $gray-normal;
+}
+
+.linkpage {
+  text-decoration: none;
+  color: $bluenormal;
 }
