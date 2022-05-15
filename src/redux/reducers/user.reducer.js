@@ -1,4 +1,4 @@
-export { types } from '../actiontypes';
+// import { types } from '../actiontypes';
 
 const initialState = {
   user: {
