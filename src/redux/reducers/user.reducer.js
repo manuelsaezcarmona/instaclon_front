@@ -11,7 +11,7 @@ const initialState = {
     createdAt: 'Objeto Date',
     updatedAt: 'Objeto Date'
   },
-  logged: false
+  logged: true
 };
 
 export const userReducer = (state = initialState, action) => {
