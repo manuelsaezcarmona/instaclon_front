@@ -19,14 +19,17 @@ export function PostCard() {
           <MdOutlineAddComment />
         </div>
       </div>
-      <div className="postcard__text">
+      <div className="postcard__textcontainer">
         <span className="postcard__usertext">{post.userID.username}</span>
         <p className="postcard__text">{post.text}</p>
       </div>
       <ul className="postcard__commentslist">
         {post.comments.map((comment) => (
           <li className="postcard__comment" key={comment.id}>
-            {comment.userIDcomment.username} | {comment.content}
+            <span className="postcard__commentuser">
+              {comment.userIDcomment.username}
+            </span>
+            <p className="postcard_commenttext">{comment.content}</p>
           </li>
         ))}
       </ul>
