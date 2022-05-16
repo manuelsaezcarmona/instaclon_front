@@ -47,16 +47,45 @@ export const post = {
 };
 
 export const user = {
-  id: 'unid78954',
-  username: 'Manu',
+  username: 'manu',
   fullname: 'Manuel Saez',
+  email: 'manu@manu.com',
+  password: '$2a$10$edlLubqc6TGKlF7IenS25u/Lc6F/So7q1UmSbrb2KCFBsDsDwGG0K',
   avatarURL: 'https://avatars.githubusercontent.com/u/70754764?v=4',
-  email: 'email@manu.com',
-  pasword: '123456',
-  posts: [],
-  comments: [],
-  createdAt: '2022-05-12T07:15:59.655+00:00',
-  updatedAt: '2022-05-12T07:28:47.443+00:00'
+  posts: [
+    {
+      imageURL: 'https://i.ibb.co/HqF7dKx/merluzaensalsaverde.jpg',
+      text: 'Tocaba merluza en salsa verde',
+      id: '62815a90babbd093ae7bd1a4'
+    },
+    {
+      imageURL: 'https://i.ibb.co/FwBHXxh/quesadillas.jpg',
+      text: 'Unas quesadillas con sabor a Mexico',
+      id: '62815cb2babbd093ae7bd1c2'
+    }
+  ],
+  comments: [
+    {
+      content: 'Y bien hecho al horno!!',
+      id: '62815bc1babbd093ae7bd1ae'
+    },
+    {
+      content: 'Que ya tocaba comer pescado',
+      id: '62815c83babbd093ae7bd1b8'
+    },
+    {
+      content: 'Me gustan picantes',
+      id: '62815cd9babbd093ae7bd1c6'
+    },
+    {
+      content: 'Si lo acompañas con chile mucho mejor!!',
+      id: '62815cedbabbd093ae7bd1cc'
+    }
+  ],
+  createdAt: '2022-05-15T19:52:31.800Z',
+  updatedAt: '2022-05-15T20:05:01.327Z',
+  __v: 6,
+  id: '628159ffbabbd093ae7bd1a1'
 };
 
 export const posts = [

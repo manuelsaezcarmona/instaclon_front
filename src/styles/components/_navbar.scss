@@ -17,9 +17,25 @@
   list-style: none;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .navbar__link {
   font-size: 1.5em;
   margin-left: 5vw;
+}
+.navbar__avatar {
+  width: 10vw;
+}
+
+@media only screen and (min-device-width: 768px) {
+  .navbar__logotext {
+    font-size: 2.5em;
+  }
+  .navbar__avatar {
+    width: 5vw;
+  }
+  .navbar__link {
+    font-size: 1.7em;
+  }
 }

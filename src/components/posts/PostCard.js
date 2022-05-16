@@ -7,7 +7,7 @@ export function PostCard({ post }) {
     <article className="post-card">
       <header className="postcard__header">
         <img
-          className="postcard__avatar"
+          className="postcard__avatar avatar"
           src={post.userID.avatarURL}
           alt={post.userID.username}
         />
