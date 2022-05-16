@@ -1,13 +1,13 @@
 import React from 'react';
 import { MdOutlineAddComment } from 'react-icons/md';
-import { post } from '../../services/sampledata';
+// import { post } from '../../services/sampledata';
 
-export function PostCard() {
+export function PostCard({ post }) {
   return (
     <article className="post-card">
       <header className="postcard__header">
         <img
-          className="postcard__avatar"
+          className="postcard__avatar avatar"
           src={post.userID.avatarURL}
           alt={post.userID.username}
         />
@@ -19,14 +19,17 @@ export function PostCard() {
           <MdOutlineAddComment />
         </div>
       </div>
-      <div className="postcard__text">
+      <div className="postcard__textcontainer">
         <span className="postcard__usertext">{post.userID.username}</span>
         <p className="postcard__text">{post.text}</p>
       </div>
       <ul className="postcard__commentslist">
         {post.comments.map((comment) => (
           <li className="postcard__comment" key={comment.id}>
-            {comment.userIDcomment.username} | {comment.content}
+            <span className="postcard__commentuser">
+              {comment.userIDcomment.username}
+            </span>
+            <p className="postcard_commenttext">{comment.content}</p>
           </li>
         ))}
       </ul>

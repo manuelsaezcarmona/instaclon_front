@@ -88,3 +88,9 @@ html {
 .linkpage {
   text-decoration: none;
 }
+
+.avatar {
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: $shadow-container;
+}
