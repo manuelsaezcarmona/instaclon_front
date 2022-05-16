@@ -1,12 +1,15 @@
 import React from 'react';
 import { PostCard } from './postcard';
+import { posts } from '../../services/sampledata';
 
 export function MainScreen() {
   return (
     <div className="main-posts-container">
-      <h1>las tarjetas de post</h1>
-      <p>las postCards se meten en una ul y cada una dentro de un li</p>
-      <PostCard />
+      <ul className="posts__list">
+        {posts.map((post) => (
+          <PostCard key={post.id} post={post} />
+        ))}
+      </ul>
     </div>
   );
 }
