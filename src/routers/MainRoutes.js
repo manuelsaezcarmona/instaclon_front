@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { NavBar } from '../components/common/NavBar';
+import FormPost from '../components/formpost/FormPost';
 
 import { MainScreen } from '../components/posts/mainscreen';
 
@@ -15,7 +16,7 @@ export function MainRoutes() {
         <Routes>
           <Route path="/" element={<MainScreen />} />
           <Route path="/user" element={<UserScreen />} />
-          {/** TODO ruta dinamica a SinglePost Screen */}
+          <Route path="/post" element={<FormPost />} />
         </Routes>
       </div>
     </>

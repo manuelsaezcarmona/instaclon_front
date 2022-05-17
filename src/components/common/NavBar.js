@@ -23,7 +23,7 @@ export function NavBar() {
             </NavLink>
           </li>
           <li className="navbar__item">
-            <NavLink className="navbar__link linkpage" to="/">
+            <NavLink className="navbar__link linkpage" to="/post">
               <GoDiffAdded />
             </NavLink>
           </li>
