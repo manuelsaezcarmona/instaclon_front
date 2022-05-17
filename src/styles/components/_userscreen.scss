@@ -1,0 +1,13 @@
+.user-container {
+  display: flex;
+  height: 80vh;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

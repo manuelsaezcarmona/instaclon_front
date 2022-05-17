@@ -7,8 +7,10 @@ function Header({ user }) {
     <>
       <Avatar user={user} size="big" />
       <div className="user-info__text">
-        <h2 className="user-info__title">{user.fullname}</h2>
-        <AiOutlineEdit />
+        <h2 className="user-info__title">
+          {user.fullname} <AiOutlineEdit className="user-info__edit" />
+        </h2>
+
         <p className="user-info__username">{user.username}</p>
       </div>
     </>
