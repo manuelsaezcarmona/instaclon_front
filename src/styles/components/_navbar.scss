@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 2% 5%;
-  width: 100vw;
+  width: 97vw;
   border-bottom: solid 1px $gray-normal;
   position: sticky;
   // Posible definicion de top
@@ -32,9 +32,7 @@
   .navbar__logotext {
     font-size: 2.5em;
   }
-  .navbar__avatar {
-    width: 5vw;
-  }
+
   .navbar__link {
     font-size: 1.7em;
   }

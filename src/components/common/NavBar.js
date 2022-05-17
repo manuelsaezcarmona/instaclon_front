@@ -2,8 +2,8 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { GoDiffAdded } from 'react-icons/go';
 import { AiTwotoneHome } from 'react-icons/ai';
-import { FaUserCircle } from 'react-icons/fa';
 import { user } from '../../services/sampledata';
+import Avatar from '../avatar/Avatar';
 
 export function NavBar() {
   return (
@@ -23,21 +23,13 @@ export function NavBar() {
             </NavLink>
           </li>
           <li className="navbar__item">
-            <NavLink className="navbar__link linkpage" to="/">
+            <NavLink className="navbar__link linkpage" to="/post">
               <GoDiffAdded />
             </NavLink>
           </li>
           <li className="navbar__item">
             <NavLink className="navbar__link linkpage" to="/user">
-              {user.avatarURL ? (
-                <img
-                  className="navbar__avatar avatar"
-                  src={user.avatarURL}
-                  alt={user.fullname}
-                />
-              ) : (
-                <FaUserCircle />
-              )}
+              <Avatar user={user} size="small" />
             </NavLink>
           </li>
           {/** TODO si da tiempo pagina explore con grid de imagenes de posts */}

@@ -1,16 +1,13 @@
 import React from 'react';
 import { MdOutlineAddComment } from 'react-icons/md';
+import Avatar from '../avatar/Avatar';
 // import { post } from '../../services/sampledata';
 
 export function PostCard({ post }) {
   return (
     <article className="post-card">
       <header className="postcard__header">
-        <img
-          className="postcard__avatar avatar"
-          src={post.userID.avatarURL}
-          alt={post.userID.username}
-        />
+        <Avatar user={post.userID} size="medium" />
         <p className="postcard__fullname">{post.userID.fullname}</p>
       </header>
       <div className="postcard__imagecontainer">

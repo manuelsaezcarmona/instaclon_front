@@ -60,8 +60,6 @@ html {
   width: 80%;
   font-size: 0.9rem;
   color: #fff;
-  background: linear-gradient(180deg, $blueprimary 0%, $bluenormal 100%);
-  background-origin: border-box;
   box-shadow: 0px 0.5px 1.5px $bluedarktransp,
     inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
   user-select: none;
@@ -73,10 +71,20 @@ html {
   box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2),
     0px 0.5px 1.5px rgba(54, 122, 246, 0.25),
     0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
-  outline: 0;
 }
 
-.inputText {
+.btn--accept {
+  background: linear-gradient(180deg, $blueprimary 0%, $bluenormal 100%);
+  background-origin: border-box;
+}
+.btn--cancel {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 181, 5, 1) 0%,
+    rgba(246, 35, 7, 1) 35%
+  );
+}
+.btn .inputText {
   height: 4vh;
   width: 80%;
   font-size: 0.75rem;
@@ -93,4 +101,15 @@ html {
   object-fit: contain;
   border-radius: 50%;
   box-shadow: $shadow-container;
+  width: 15%;
+}
+.avatar--small {
+  width: 10vw;
+}
+
+.avatar--medium {
+  width: 15vw;
+}
+.avatar--big {
+  width: 20vw;
 }

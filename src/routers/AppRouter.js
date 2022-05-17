@@ -13,6 +13,7 @@ export default function AppRouter() {
     <div className="PhotoClonApp">
       <Router>
         <Routes>
+          {/* <PublicRoute> */}
           <Route
             path="/login"
             element={
@@ -29,6 +30,7 @@ export default function AppRouter() {
               </PublicRoute>
             }
           />
+          {/*  </PublicRoute> */}
           <Route
             path="/*"
             element={

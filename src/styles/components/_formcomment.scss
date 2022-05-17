@@ -1,0 +1,36 @@
+.formcomment__container {
+  width: 100vw;
+  height: 100vh;
+  background-color: $gray-normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formcomment__form {
+  background-color: $white-oficial-background;
+  box-shadow: $shadow-container;
+  padding: 2%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.formcomment__content {
+  resize: none;
+  outline: none;
+}
+
+.formcomment_buttons {
+  display: flex;
+  column-gap: 10px;
+}
+.formcomment_close {
+  position: absolute;
+  top: 2vh;
+  right: 2vw;
+  color: #585858;
+  text-decoration: none;
+}
