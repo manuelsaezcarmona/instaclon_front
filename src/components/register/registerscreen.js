@@ -35,7 +35,7 @@ export function RegisterScreen() {
             placeholder="Vuelve a introducir tu contraseña"
             autoComplete="off"
           />
-          <button className="btn" type="submit">
+          <button className="btn btn--accept" type="submit">
             Regístrate
           </button>
         </form>
