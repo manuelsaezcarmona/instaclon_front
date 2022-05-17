@@ -1,0 +1,13 @@
+.user-info__commentlist {
+  list-style: none;
+  font-size: 0.9em;
+}
+
+.user-info__commentitem {
+  display: flex;
+  margin: 0.8em 0;
+  justify-content: space-between;
+}
+.user-info__commentdate {
+  min-width: 50%;
+}

@@ -1,6 +1,6 @@
 .user-container {
   display: flex;
-  height: 80vh;
+  min-height: 80vh;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-around;
@@ -10,4 +10,8 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.user-comments {
+  padding: 0 5vw;
 }

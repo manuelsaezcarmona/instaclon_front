@@ -10,8 +10,15 @@ export function UserScreen() {
       <div className="user-info">
         <Header user={user} />
       </div>
-      <CommentList user={user} />
-      <PostList user={user} />
+      <div className="user-comments">
+        <h3 className="user-comments_title">Comentarios</h3>
+        <CommentList user={user} />
+      </div>
+
+      <div className="user-posts">
+        <h3 className="user-posts_title">Publicaciones</h3>
+        <PostList user={user} />
+      </div>
     </div>
   );
 }
