@@ -24,12 +24,14 @@ export default function FormPost() {
           rows="4"
           placeholder="Escribe tu post"
         />
-        <button className="btn btn--cancel" type="submit">
-          Cancelar
-        </button>
-        <button className="btn btn--accept" type="submit">
-          Publicar
-        </button>
+        <div className="formpost__buttons">
+          <button className="btn btn--cancel" type="button">
+            Cancelar
+          </button>
+          <button className="btn btn--accept" type="submit">
+            Publicar
+          </button>
+        </div>
       </form>
     </div>
   );

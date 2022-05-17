@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaWindowClose } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 export default function FormComment() {
   return (
@@ -21,8 +22,19 @@ export default function FormComment() {
             Posteado por Manu el 17 de mayo de 2022
           </p>
         </div>
+        <div className="formcomment_buttons">
+          <button className="btn btn--cancel" type="button">
+            Cancelar
+          </button>
+          <button className="btn btn--accept" type="submit">
+            Publicar
+          </button>
+        </div>
+
         <div className="formcomment_close">
-          <FaWindowClose />
+          <Link to="/">
+            <FaWindowClose />
+          </Link>
         </div>
       </form>
     </div>
