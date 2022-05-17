@@ -1,5 +1,6 @@
 import React from 'react';
 import { user } from '../../services/sampledata';
+import CommentList from '../commentlist/CommentList';
 import Header from '../header/Header';
 import PostList from '../postlist/PostList';
 
@@ -8,8 +9,9 @@ export function UserScreen() {
     <div className="user-container">
       <div className="user-info">
         <Header user={user} />
-        <PostList user={user} />
       </div>
+      <PostList user={user} />
+      <CommentList user={user} />
     </div>
   );
 }

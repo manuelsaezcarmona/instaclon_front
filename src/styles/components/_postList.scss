@@ -1,0 +1,9 @@
+.user-info__list {
+  box-shadow: $shadow-container;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1vw;
+  justify-items: center;
+  list-style: none;
+  list-style-position: outside;
+}

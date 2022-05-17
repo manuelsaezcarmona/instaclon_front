@@ -7,7 +7,9 @@ export function MainScreen() {
     <div className="main-posts-container">
       <ul className="posts__list">
         {posts.map((post) => (
-          <PostCard key={post.id} post={post} />
+          <li key={post.id}>
+            <PostCard post={post} />
+          </li>
         ))}
       </ul>
     </div>
