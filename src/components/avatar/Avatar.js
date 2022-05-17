@@ -1,19 +1,15 @@
 import React from 'react';
 import { FaUserCircle } from 'react-icons/fa';
+import { AVATAR_SIZE_CLASSNAME } from '../../constants/index';
 
-function Avatar({ user }) {
-  return (
-    <div className="user-info__imgcontainer">
-      {user.avatarURL ? (
-        <img
-          className="user-info__avatar avatar"
-          src={user.avatarURL}
-          alt={user.fullname}
-        />
-      ) : (
-        <FaUserCircle />
-      )}
-    </div>
+function Avatar({ user, size = '' }) {
+  const avatarSizeClassName = AVATAR_SIZE_CLASSNAME[size] || '';
+  const avatarClassName = `avatar ${avatarSizeClassName}`;
+
+  return user.avatarURL ? (
+    <img className={avatarClassName} src={user.avatarURL} alt={user.fullname} />
+  ) : (
+    <FaUserCircle />
   );
 }
 

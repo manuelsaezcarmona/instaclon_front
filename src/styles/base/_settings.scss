@@ -93,4 +93,15 @@ html {
   object-fit: contain;
   border-radius: 50%;
   box-shadow: $shadow-container;
+  width: 15%;
+}
+.avatar--small {
+  width: 10vw;
+}
+
+.avatar--medium {
+  width: 15vw;
+}
+.avatar--big {
+  width: 20vw;
 }
