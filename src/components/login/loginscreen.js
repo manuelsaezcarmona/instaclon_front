@@ -21,7 +21,7 @@ export function LoginScreen() {
             placeholder="Introduce tu contraseña"
             autoComplete="off"
           />
-          <button className="btn" type="submit">
+          <button className="btn btn--accept" type="submit">
             Entrar
           </button>
         </form>
