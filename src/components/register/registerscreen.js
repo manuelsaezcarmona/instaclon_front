@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/alt-text */
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import pathimg from '../../assets/empty.jpg';
 import { useForm } from '../../hooks/userForm';
@@ -16,30 +17,50 @@ export function RegisterScreen() {
   const { imageURL, username, fullname, email, password, password2 } =
     formRegisterValues;
 
+  // eslint-disable-next-line no-unused-vars
+  const [picture, setPicture] = useState(null);
+  const [imgData, setImgData] = useState(null);
+
+  const handleFileChange = (e) => {
+    if (e.target.files[0]) {
+      console.log('picture: ', e.target.files[0]);
+
+      setPicture(e.target.files[0]);
+      console.log(picture);
+      const reader = new FileReader();
+      reader.addEventListener('load', () => {
+        console.log(reader.result);
+        setImgData(reader.result);
+      });
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(e.target.files[0]);
+    }
+  };
+
   const handleClickPicture = () => {
     /** Necesito seleccionar un archivo y saber que archivo si eso cambiar */
     // Usando JS puro puedo seleccionar ese elemento este handle lanza un click
     // a ese elemento que es nuestro input de archivos
     document.querySelector('#file-selector-toimage').click();
-    console.log('hago un click');
-  };
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    console.log(file);
   };
 
   return (
     <div className="register login__container">
       <div className="login__element">
         <h1 className="login__title logo">PhotoClon</h1>
+
         <form className="login__form">
-          <img
-            className="formpost__image"
-            src={pathimg}
-            alt="imagen sin cargar"
-            accept="image/png, .jpeg, .jpg, image/gif"
-          />
+          {imgData === null ? (
+            <img
+              className="formpost__image"
+              src={pathimg}
+              alt="imagen sin cargar"
+              accept="image/png, .jpeg, .jpg, image/gif"
+            />
+          ) : (
+            <img className="formpost__image" src={imgData} />
+          )}
+
           <input
             id="file-selector-toimage"
             type="file"
