@@ -42,7 +42,7 @@ export function RegisterScreen() {
         <div className="login__remember">
           <p className="login__textremember">
             ¿Tienes una cuenta?{' '}
-            <Link className="register login__link" to="/login">
+            <Link className="register login__link" to="/public/login">
               Entrar
             </Link>{' '}
           </p>

@@ -1,17 +1,19 @@
 export const types = {
-  userRegister: '@user/Register user',
-  userLogin: '@user/Login User',
+  userRegister: '@user/Register',
+  userStartLogin: '@userStartLogin',
+  userLogin: '@user/Login',
+  userLogout: '@user/Logout',
 
-  userGet: '@user/Get User',
-  userUpdate: '@user/Update User',
+  userGet: '@user/Get',
+  userUpdate: '@user/Update',
 
-  postAdd: '@post/Add post',
-  postDelete: '@post/Delete post',
-  postUpdate: '@post/Update post',
-  postGet: '@post/Get posts',
+  postAdd: '@post/Add',
+  postDelete: '@post/Delete',
+  postUpdate: '@post/Update',
+  postGet: '@post/Get',
 
-  commentAdd: '@comment/Add Comment',
-  commentDelete: '@comment/Delete Comment',
-  commentUpdate: '@comment/Update Comment',
-  commentGet: '@comment/Get Comments'
+  commentAdd: '@comment/Add',
+  commentDelete: '@comment/Delete',
+  commentUpdate: '@comment/Update',
+  commentGet: '@comment/Get'
 };
