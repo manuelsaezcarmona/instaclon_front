@@ -1,11 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { GoDiffAdded } from 'react-icons/go';
 import { AiTwotoneHome } from 'react-icons/ai';
-import { user } from '../../services/sampledata';
+
 import Avatar from '../avatar/Avatar';
 
 export function NavBar() {
+  const { user } = useSelector((store) => store.user);
+
   return (
     <nav className="navbar">
       <div className="navbar__logo">
