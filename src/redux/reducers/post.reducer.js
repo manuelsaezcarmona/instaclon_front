@@ -1,4 +1,4 @@
-export { types } from '../actiontypes';
+import { types } from '../actiontypes';
 
 const initialState = {
   posts: [
@@ -16,6 +16,12 @@ const initialState = {
 
 export const postReducer = (state = initialState, action) => {
   switch (action.type) {
+    case types.postGetAll:
+      return {
+        ...state,
+        posts: action.payload
+      };
+
     default:
       return state;
   }
