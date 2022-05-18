@@ -16,6 +16,19 @@ export function RegisterScreen() {
   const { imageURL, username, fullname, email, password, password2 } =
     formRegisterValues;
 
+  const handleClickPicture = () => {
+    /** Necesito seleccionar un archivo y saber que archivo si eso cambiar */
+    // Usando JS puro puedo seleccionar ese elemento este handle lanza un click
+    // a ese elemento que es nuestro input de archivos
+    document.querySelector('#file-selector-toimage').click();
+    console.log('hago un click');
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+  };
+
   return (
     <div className="register login__container">
       <div className="login__element">
@@ -33,9 +46,13 @@ export function RegisterScreen() {
             name="imageURL"
             value={imageURL}
             placeholder="sube una imagen"
-            onChange={handleRegisterInputChange}
+            onChange={handleFileChange}
           />
-          <button className="btn btn--accept" type="button">
+          <button
+            className="btn btn--accept"
+            type="button"
+            onClick={handleClickPicture}
+          >
             Elegir foto
           </button>
           <input
