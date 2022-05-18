@@ -10,7 +10,7 @@ export const types = {
   postAdd: '@post/Add',
   postDelete: '@post/Delete',
   postUpdate: '@post/Update',
-  postGet: '@post/Get',
+  postGetAll: '@post/GetAll',
 
   commentAdd: '@comment/Add',
   commentDelete: '@comment/Delete',

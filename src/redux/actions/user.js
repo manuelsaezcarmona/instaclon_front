@@ -28,3 +28,7 @@ export const startLogin = (email, password) => async (dispatch) => {
     // ToDo manejo de error ¿hago un logout?
   }
 };
+
+// Register .
+// 1 recoge los datos del form. Incluyendo la imagen
+// c
