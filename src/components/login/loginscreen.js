@@ -28,7 +28,7 @@ export function LoginScreen() {
         <div className="login__remember">
           <p className="login__textremember">
             ¿No tienes una cuenta?{' '}
-            <Link className="login__link" to="/register">
+            <Link className="login__link" to="/public/register">
               Registrate
             </Link>{' '}
           </p>

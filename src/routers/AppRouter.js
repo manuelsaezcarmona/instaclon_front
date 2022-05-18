@@ -1,36 +1,26 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { LoginScreen } from '../components/login/loginscreen';
 
-import { RegisterScreen } from '../components/register/registerscreen';
 import { MainRoutes } from './MainRoutes';
 import PrivateRoute from './PrivateRoute';
 
 import { PublicRoute } from './PublicRoute';
+import PublicRoutes from './PublicRoutes';
 
 export default function AppRouter() {
+  // TODO  <div className="spinner">Loading...</div>;
   return (
     <div className="PhotoClonApp">
       <Router>
         <Routes>
-          {/* <PublicRoute> */}
           <Route
-            path="/login"
+            path="/public/*"
             element={
               <PublicRoute>
-                <LoginScreen />
+                <PublicRoutes />
               </PublicRoute>
             }
           />
-          <Route
-            path="/register"
-            element={
-              <PublicRoute>
-                <RegisterScreen />
-              </PublicRoute>
-            }
-          />
-          {/*  </PublicRoute> */}
           <Route
             path="/*"
             element={

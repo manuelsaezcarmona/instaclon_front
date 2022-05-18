@@ -4,5 +4,5 @@ import { Navigate } from 'react-router-dom';
 
 export default function PrivateRoute({ children }) {
   const { logged } = useSelector((state) => state.user);
-  return logged ? children : <Navigate to="/login" />;
+  return logged ? children : <Navigate to="/public/login" />;
 }
