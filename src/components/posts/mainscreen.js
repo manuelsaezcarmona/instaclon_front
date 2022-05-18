@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostCard } from './postcard';
+import { PostCard } from './PostCard';
 import { posts } from '../../services/sampledata';
 
 export function MainScreen() {
