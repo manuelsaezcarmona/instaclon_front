@@ -30,6 +30,17 @@ export const startLogin = (email, password) => async (dispatch) => {
   }
 };
 
+export const checkUser = () => async (dispatch) => {
+  const token = localStorage.getItem('token');
+
+  if (token) {
+    const resp = await getUser();
+    dispatch(login(resp.user));
+  } else {
+    dispatch(logout());
+  }
+};
+
 export const registerUser = (user) => ({
   type: types.userRegister,
   payload: user
