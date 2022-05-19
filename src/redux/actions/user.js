@@ -12,6 +12,11 @@ export const logout = () => ({
   payload: false
 });
 
+export const startLogout = () => (dispatch) => {
+  localStorage.clear();
+  dispatch(logout());
+};
+
 export const startLogin = (email, password) => async (dispatch) => {
   try {
     const result = await logUser(email, password);
