@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import pathimg from '../../assets/empty.jpg';
-import { uploadFileToCloud } from '../../helpers/uploadfile';
+// import { uploadFileToCloud } from '../../helpers/uploadfile';
 import { useForm } from '../../hooks/userForm';
 
 export function RegisterScreen() {
@@ -19,7 +19,7 @@ export function RegisterScreen() {
 
   // eslint-disable-next-line no-unused-vars
   // const [picture, setPicture] = useState(null);
-  const [imgData, setImgData] = useState(null);
+  const [imgFile, setImgData] = useState(null);
 
   const handleFileChange = (e) => {
     if (e.target.files[0]) {
@@ -38,9 +38,6 @@ export function RegisterScreen() {
   };
 
   const handleClickPicture = () => {
-    /** Necesito seleccionar un archivo y saber que archivo si eso cambiar */
-    // Usando JS puro puedo seleccionar ese elemento este handle lanza un click
-    // a ese elemento que es nuestro input de archivos
     document.querySelector('#file-selector-toimage').click();
   };
 
@@ -49,8 +46,7 @@ export function RegisterScreen() {
     console.log('estoy en RegisterSubimit');
     console.log(formRegisterValues);
 
-    const respuesta = await uploadFileToCloud(imgData);
-    console.log(respuesta);
+    console.log(imgFile);
   };
 
   return (
@@ -59,7 +55,7 @@ export function RegisterScreen() {
         <h1 className="login__title logo">PhotoClon</h1>
 
         <form className="login__form" onSubmit={handleRegisterSubmit}>
-          {imgData === null ? (
+          {imgFile === null ? (
             <img
               className="formpost__image"
               src={pathimg}
@@ -67,7 +63,7 @@ export function RegisterScreen() {
               accept="image/png, .jpeg, .jpg, image/gif"
             />
           ) : (
-            <img className="formpost__image" src={imgData} />
+            <img className="formpost__image" src={imgFile} />
           )}
 
           <input
@@ -98,7 +94,7 @@ export function RegisterScreen() {
             type="text"
             name="fullname"
             value={fullname}
-            placeholder="Pon tu nombre de usuario"
+            placeholder="Pon tu nombre Completo"
             autoComplete="off"
             onChange={handleRegisterInputChange}
           />
