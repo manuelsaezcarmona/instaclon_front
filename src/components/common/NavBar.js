@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { GoDiffAdded } from 'react-icons/go';
 import { AiTwotoneHome } from 'react-icons/ai';
-
+import { RiLogoutBoxRFill } from 'react-icons/ri';
 import Avatar from '../avatar/Avatar';
 
 export function NavBar() {
@@ -35,7 +35,9 @@ export function NavBar() {
               <Avatar user={user} size="small" />
             </NavLink>
           </li>
-          {/** TODO si da tiempo pagina explore con grid de imagenes de posts */}
+          <li className="navbar__item navbar__link">
+            <RiLogoutBoxRFill />{' '}
+          </li>
         </ul>
       </div>
     </nav>
