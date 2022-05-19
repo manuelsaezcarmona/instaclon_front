@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+@font-face {
+  font-family: 'FontSpring';
+  font-weight: normal;
+  font-style: normal;
+  src: url(../../assets/Fontspring-DEMO-blue_vinyl_regular_ps_ot.otf)
+    format('opentype');
+}
+
+@font-face {
+  font-family: 'FontSpring';
+  font-weight: bold;
+  font-style: normal;
+  src: url(../../assets/Fontspring-DEMO-blue_vinyl_bold_ps_ot.otf)
+    format('opentype');
+}
+
+// Fonts
+$principal-font: 'Roboto', sans-serif, 'Oxygen', 'Ubuntu', 'Cantarell',
+  'Fira Sans', 'Droid Sans', 'Helvetica Neue';
+$logofont: 'FontSpring';
+
+// Colors
+$white-background: #f2f6f9;
+$white-oficial-background: #fafafa;
+$colorborder: #ebebeb;
+$black-dark: #262626;
+$gray-normal: #979797;
+$blueprimary: #4b91f7;
+$bluenormal: #367af6;
+$bluedarktransp: rgba(54, 122, 246, 0.25);
+
+// Effects
+$shadow-container: inset 0 0 0.5em rgba(0, 0, 0, 0.1),
+  0.2em 0.2em 0.5em rgba(0, 0, 0, 0.2);
+
+* {
+  font-family: $principal-font;
+  color: $black-dark;
+}
+
+html {
+  background-color: $white-oficial-background;
+}
+
+.logo {
+  font-family: $logofont;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  color: $black-dark;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  width: 80%;
+  font-size: 0.9rem;
+  color: #fff;
+  box-shadow: 0px 0.5px 1.5px $bluedarktransp,
+    inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn:focus {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2),
+    0px 0.5px 1.5px rgba(54, 122, 246, 0.25),
+    0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+}
+
+.btn--accept {
+  background: linear-gradient(180deg, $blueprimary 0%, $bluenormal 100%);
+  background-origin: border-box;
+}
+.btn--cancel {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 181, 5, 1) 0%,
+    rgba(246, 35, 7, 1) 35%
+  );
+}
+
+.inputText {
+  height: 4vh;
+  width: 80%;
+  font-size: 0.8rem;
+  margin: 1vh 0vh;
+  padding: 5px;
+  border: solid 1px $gray-normal;
+}
+
+.linkpage {
+  text-decoration: none;
+}
+
+.avatar {
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: $shadow-container;
+  width: 15%;
+}
+.avatar--small {
+  width: 10vw;
+}
+
+.avatar--medium {
+  width: 15vw;
+}
+.avatar--big {
+  width: 20vw;
+}

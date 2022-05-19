@@ -1,0 +1,21 @@
+.user-container {
+  display: flex;
+  min-height: 80vh;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 1% 0;
+}
+
+.user-comments_title,
+.user-posts_title {
+  padding: 0 5vw;
+  margin-bottom: 0.8em;
+  box-shadow: $shadow-container;
+}

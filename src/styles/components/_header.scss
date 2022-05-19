@@ -1,0 +1,13 @@
+.user-info__text {
+  display: flex;
+  flex-direction: column;
+}
+.user-info__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.user-info__edit {
+  margin-left: 5px;
+}

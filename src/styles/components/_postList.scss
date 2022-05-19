@@ -1,0 +1,8 @@
+.user-info__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1vw;
+  justify-items: center;
+  list-style: none;
+  list-style-position: outside;
+}
