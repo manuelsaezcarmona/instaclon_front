@@ -1,5 +1,6 @@
 export const types = {
   userRegister: '@user/Register',
+  userStartRegister: '@user/StarRegister',
   userStartLogin: '@userStartLogin',
   userLogin: '@user/Login',
   userLogout: '@user/Logout',

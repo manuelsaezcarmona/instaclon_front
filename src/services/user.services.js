@@ -1,6 +1,12 @@
 import axios from 'axios';
 
-export const register = async (username, email, password) => {
+export const register = async (
+  username,
+  fullname,
+  avatarURL,
+  email,
+  password
+) => {
   // http://localhost:4000/user/new
   const baseURL = process.env.REACT_APP_API_URL;
   const domain = 'user';
@@ -8,6 +14,8 @@ export const register = async (username, email, password) => {
   try {
     const response = await axios.post(`${baseURL}/${domain}/${query}`, {
       username,
+      fullname,
+      avatarURL,
       email,
       password
     });
