@@ -37,17 +37,11 @@ export const registerUser = (user) => ({
 
 export const startRegister =
   // eslint-disable-next-line consistent-return
-  (username, fullname, imgFile, email, password) => async (dispatch) => {
+  (username, fullname, imgFile, email, password) => async () => {
     try {
       const avatarURL = await uploadFileToCloud(imgFile);
-      const userRegistered = await register(
-        username,
-        fullname,
-        avatarURL,
-        email,
-        password
-      );
-      dispatch(registerUser(userRegistered));
+      await register(username, fullname, avatarURL, email, password);
+      // dispatch(registerUser(userRegistered));
     } catch (error) {
       return error;
     }
