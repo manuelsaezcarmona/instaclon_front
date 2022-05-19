@@ -12,6 +12,11 @@ export const logout = () => ({
   payload: false
 });
 
+export const startLogout = () => (dispatch) => {
+  localStorage.clear();
+  dispatch(logout());
+};
+
 export const startLogin = (email, password) => async (dispatch) => {
   try {
     const result = await logUser(email, password);
@@ -27,6 +32,17 @@ export const startLogin = (email, password) => async (dispatch) => {
     dispatch(login(resp.user));
   } catch (error) {
     // ToDo manejo de error ¿hago un logout?
+  }
+};
+
+export const startCheckUser = () => async (dispatch) => {
+  const token = localStorage.getItem('token');
+
+  if (token) {
+    const resp = await getUser();
+    dispatch(login(resp.user));
+  } else {
+    dispatch(logout());
   }
 };
 

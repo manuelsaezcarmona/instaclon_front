@@ -1,13 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { GoDiffAdded } from 'react-icons/go';
 import { AiTwotoneHome } from 'react-icons/ai';
-
+import { RiLogoutBoxRFill } from 'react-icons/ri';
 import Avatar from '../avatar/Avatar';
+import { startLogout } from '../../redux/actions/user';
 
 export function NavBar() {
   const { user } = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(startLogout());
+  };
 
   return (
     <nav className="navbar">
@@ -35,7 +40,9 @@ export function NavBar() {
               <Avatar user={user} size="small" />
             </NavLink>
           </li>
-          {/** TODO si da tiempo pagina explore con grid de imagenes de posts */}
+          <li className="navbar__item navbar__link">
+            <RiLogoutBoxRFill onClick={handleLogout} />
+          </li>
         </ul>
       </div>
     </nav>
