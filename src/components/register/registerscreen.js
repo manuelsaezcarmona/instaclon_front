@@ -26,7 +26,7 @@ export function RegisterScreen() {
 
   const handleFileChange = (e) => {
     if (e.target.files[0]) {
-      console.log('e.target.files[0]: ', e.target.files[0]);
+      // console.log('e.target.files[0]: ', e.target.files[0]);
 
       /*  setPicture(e.target.files[0]);
       console.log(`picture ${picture}`); */
