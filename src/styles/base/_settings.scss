@@ -99,18 +99,20 @@ html {
 }
 
 .avatar {
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 50%;
   box-shadow: $shadow-container;
-  width: 15%;
 }
 .avatar--small {
   width: 10vw;
+  height: 10vw;
 }
 
 .avatar--medium {
   width: 15vw;
+  height: 15vw;
 }
 .avatar--big {
   width: 20vw;
+  height: 20vw;
 }
