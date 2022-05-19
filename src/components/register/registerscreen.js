@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import pathimg from '../../assets/empty.jpg';
+import { uploadFileToCloud } from '../../helpers/uploadfile';
 import { useForm } from '../../hooks/userForm';
 
 export function RegisterScreen() {
@@ -14,22 +15,21 @@ export function RegisterScreen() {
     password2: ''
   });
 
-  const { imageURL, username, fullname, email, password, password2 } =
-    formRegisterValues;
+  const { username, fullname, email, password, password2 } = formRegisterValues;
 
   // eslint-disable-next-line no-unused-vars
-  const [picture, setPicture] = useState(null);
+  // const [picture, setPicture] = useState(null);
   const [imgData, setImgData] = useState(null);
 
   const handleFileChange = (e) => {
     if (e.target.files[0]) {
-      console.log('picture: ', e.target.files[0]);
+      console.log('e.target.files[0]: ', e.target.files[0]);
 
-      setPicture(e.target.files[0]);
-      console.log(picture);
+      /*  setPicture(e.target.files[0]);
+      console.log(`picture ${picture}`); */
       const reader = new FileReader();
       reader.addEventListener('load', () => {
-        console.log(reader.result);
+        // console.log(`fileimage:  ${reader.result}`);
         setImgData(reader.result);
       });
       // Read in the image file as a data URL.
@@ -44,12 +44,21 @@ export function RegisterScreen() {
     document.querySelector('#file-selector-toimage').click();
   };
 
+  const handleRegisterSubmit = async (e) => {
+    e.preventDefault();
+    console.log('estoy en RegisterSubimit');
+    console.log(formRegisterValues);
+
+    const respuesta = await uploadFileToCloud(imgData);
+    console.log(respuesta);
+  };
+
   return (
     <div className="register login__container">
       <div className="login__element">
         <h1 className="login__title logo">PhotoClon</h1>
 
-        <form className="login__form">
+        <form className="login__form" onSubmit={handleRegisterSubmit}>
           {imgData === null ? (
             <img
               className="formpost__image"
@@ -65,7 +74,6 @@ export function RegisterScreen() {
             id="file-selector-toimage"
             type="file"
             name="imageURL"
-            value={imageURL}
             placeholder="sube una imagen"
             onChange={handleFileChange}
           />
