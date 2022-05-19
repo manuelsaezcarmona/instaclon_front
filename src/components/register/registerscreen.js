@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import pathimg from '../../assets/empty.jpg';
+import { useImgData } from '../../hooks/useImgData';
 // import { uploadFileToCloud } from '../../helpers/uploadfile';
 import { useForm } from '../../hooks/userForm';
 
@@ -20,25 +21,7 @@ export function RegisterScreen() {
 
   const { username, fullname, email, password, password2 } = formRegisterValues;
 
-  // eslint-disable-next-line no-unused-vars
-  // const [picture, setPicture] = useState(null);
-  const [imgFile, setImgData] = useState(null);
-
-  const handleFileChange = (e) => {
-    if (e.target.files[0]) {
-      // console.log('e.target.files[0]: ', e.target.files[0]);
-
-      /*  setPicture(e.target.files[0]);
-      console.log(`picture ${picture}`); */
-      const reader = new FileReader();
-      reader.addEventListener('load', () => {
-        // console.log(`fileimage:  ${reader.result}`);
-        setImgData(reader.result);
-      });
-      // Read in the image file as a data URL.
-      reader.readAsDataURL(e.target.files[0]);
-    }
-  };
+  const [imgFile, handleFileChange] = useImgData();
 
   const handleClickPicture = () => {
     document.querySelector('#file-selector-toimage').click();
