@@ -1,13 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import pathimg from '../../assets/empty.jpg';
 // import { uploadFileToCloud } from '../../helpers/uploadfile';
 import { useForm } from '../../hooks/userForm';
 
+import { startRegister } from '../../redux/actions/user';
+
 export function RegisterScreen() {
+  const dispatch = useDispatch();
   const [formRegisterValues, handleRegisterInputChange] = useForm({
-    imageURL: '',
     username: '',
     fullname: '',
     email: '',
@@ -43,10 +46,8 @@ export function RegisterScreen() {
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
-    console.log('estoy en RegisterSubimit');
-    console.log(formRegisterValues);
-
-    console.log(imgFile);
+    // console.log(username, fullname, imgFile, email, password);
+    dispatch(startRegister(username, fullname, imgFile, email, password));
   };
 
   return (

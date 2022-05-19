@@ -30,6 +30,12 @@ export const userReducer = (state = initialState, action) => {
         user: {},
         logged: false
       };
+    case types.userRegister: {
+      return {
+        ...state,
+        user: action.payload
+      };
+    }
     default:
       return state;
   }
