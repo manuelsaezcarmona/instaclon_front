@@ -13,7 +13,7 @@ const initialState = {
     createdAt: '2022-05-12T07:15:59.655+00:00',
     updatedAt: '2022-05-12T07:28:47.443+00:00' */
   },
-  logged: false
+  logged: null
 };
 
 export const userReducer = (state = initialState, action) => {

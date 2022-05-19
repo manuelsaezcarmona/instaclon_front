@@ -30,7 +30,7 @@ export const startLogin = (email, password) => async (dispatch) => {
   }
 };
 
-export const checkUser = () => async (dispatch) => {
+export const startCheckUser = () => async (dispatch) => {
   const token = localStorage.getItem('token');
 
   if (token) {
