@@ -1,11 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { NavBar } from '../components/common/NavBar';
-import FormPost from '../components/formpost/FormPost';
+import { NavBar } from '../components/NavBar/NavBar';
+import FormPost from '../components/FormPost/FormPost';
 // import FormComment from '../components/formcomment/FormComment';
-import { MainScreen } from '../components/posts/mainscreen';
+import { Main } from '../components/Main/Main';
 
-import { UserScreen } from '../components/user/userscreen';
+import { User } from '../components/User/User';
 
 export function MainRoutes() {
   return (
@@ -14,8 +14,8 @@ export function MainRoutes() {
 
       <div className="main-container">
         <Routes>
-          <Route path="/" element={<MainScreen />} />
-          <Route path="/user" element={<UserScreen />} />
+          <Route path="/" element={<Main />} />
+          <Route path="/user" element={<User />} />
           <Route path="/post" element={<FormPost />} />
         </Routes>
       </div>

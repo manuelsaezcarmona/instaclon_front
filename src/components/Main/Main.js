@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { PostCard } from './PostCard';
+import { PostCard } from '../Posts/PostCard';
 
 import { startGetPostsAll } from '../../redux/actions/post';
 
-export function MainScreen() {
+export function Main() {
   const { posts } = useSelector((store) => store.post);
   const dispatch = useDispatch();
 

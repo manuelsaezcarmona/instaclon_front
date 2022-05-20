@@ -9,3 +9,11 @@ export const AVATAR_SIZE_CLASSNAME = {
   [AVATAR_SIZE.MEDIUM]: 'avatar--medium',
   [AVATAR_SIZE.SMALL]: 'avatar--small'
 };
+
+export const FORM_INITIAL_STATE = {
+  username: '',
+  fullname: '',
+  email: '',
+  password: '',
+  password2: ''
+};

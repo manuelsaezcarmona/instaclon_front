@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import CommentList from '../commentlist/CommentList';
-import Header from '../header/Header';
-import PostList from '../postlist/PostList';
+import CommentList from '../CommentList/CommentList';
+import Header from '../Header/Header';
+import PostList from '../PostList/PostList';
 
-export function UserScreen() {
+export function User() {
   const { user } = useSelector((store) => store.user);
   return (
     <div className="user-container">

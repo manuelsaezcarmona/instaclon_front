@@ -1,22 +1,27 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+// import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import pathimg from '../../assets/empty.jpg';
+import { FORM_INITIAL_STATE } from '../../constants';
 import { useImgData } from '../../hooks/useImgData';
 // import { uploadFileToCloud } from '../../helpers/uploadfile';
 import { useForm } from '../../hooks/userForm';
 
-import { startRegister } from '../../redux/actions/user';
+// import { startRegister } from '../../redux/actions/user';
 
 export function RegisterScreen() {
-  const dispatch = useDispatch();
-  const [formRegisterValues, handleRegisterInputChange] = useForm({
-    username: '',
-    fullname: '',
-    email: '',
-    password: '',
-    password2: ''
+  //  const dispatch = useDispatch();
+  const [formRegisterValues, handleRegisterInputChange] =
+    useForm(FORM_INITIAL_STATE);
+
+  const [formError, setFormError] = useState({
+    username: false,
+    fullname: false,
+    email: false,
+    password: false,
+    password2: false
   });
 
   const { username, fullname, email, password, password2 } = formRegisterValues;
@@ -27,12 +32,24 @@ export function RegisterScreen() {
     document.querySelector('#file-selector-toimage').click();
   };
 
-  const handleRegisterSubmit = async (e) => {
+  const handleRegisterSubmit = (e) => {
     e.preventDefault();
-    // console.log(username, fullname, imgFile, email, password);
-    dispatch(startRegister(username, fullname, imgFile, email, password));
-  };
+    // Validacion de los elementos.
+    // con un if de todos los elementos , si seterror >0 => dispatch : mensaje de error
 
+    if (!username) {
+      setFormError((prevFormErrorState) => ({
+        ...prevFormErrorState,
+        username: true
+      }));
+    }
+
+    /* startRegister(username, fullname, imgFile, email, password).then(console.log)
+    => navigate login */
+    // si vengo de la ruta de register
+    // router.push(path de login);
+  };
+  const errorEntries = Object.entries(formError).filter((item) => item[1]);
   return (
     <div className="register login__container">
       <div className="login__element">
@@ -113,6 +130,18 @@ export function RegisterScreen() {
             Regístrate
           </button>
         </form>
+
+        {errorEntries.length !== 0 && (
+          <div>
+            <p>Error de validacion para los siguientes campos: </p>
+            <ul>
+              {errorEntries.map((errorEntry, index) => (
+                <li key={index}>{errorEntry[0]}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         <div className="login__remember">
           <p className="login__textremember">
             ¿Tienes una cuenta?{' '}
