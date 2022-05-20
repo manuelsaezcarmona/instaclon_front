@@ -10,7 +10,7 @@ export const AVATAR_SIZE_CLASSNAME = {
   [AVATAR_SIZE.SMALL]: 'avatar--small'
 };
 
-export const FORM_INITIAL_STATE = {
+export const REGISTER_FORM_INITIAL_STATE = {
   username: '',
   fullname: '',
   email: '',

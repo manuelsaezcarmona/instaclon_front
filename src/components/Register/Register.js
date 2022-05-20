@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 // import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import pathimg from '../../assets/empty.jpg';
-import { FORM_INITIAL_STATE } from '../../constants';
+import { REGISTER_FORM_INITIAL_STATE } from '../../constants';
 import { useImgData } from '../../hooks/useImgData';
 // import { uploadFileToCloud } from '../../helpers/uploadfile';
 import { useForm } from '../../hooks/userForm';
@@ -13,8 +13,9 @@ import { useForm } from '../../hooks/userForm';
 
 export function Register() {
   //  const dispatch = useDispatch();
-  const [formRegisterValues, handleRegisterInputChange] =
-    useForm(FORM_INITIAL_STATE);
+  const [formRegisterValues, handleRegisterInputChange] = useForm(
+    REGISTER_FORM_INITIAL_STATE
+  );
 
   // eslint-disable-next-line no-unused-vars
   const [formError, setFormError] = useState({
@@ -37,7 +38,7 @@ export function Register() {
     e.preventDefault();
     // Validacion de los elementos.
     // con un if de todos los elementos , si seterror >0 => dispatch : mensaje de error
-    // eslint-disable-next-line no-unused-vars
+
     const formFields = Object.entries(formRegisterValues);
     formFields.forEach((field) => {
       if (!field[1]) {
@@ -49,17 +50,9 @@ export function Register() {
 
     const objFields = Object.fromEntries(formFields);
 
-    console.log(formFields);
-
     console.log(objFields);
 
     setFormError(objFields);
-    /*  if (!username) {
-      setFormError((prevFormErrorState) => ({
-        ...prevFormErrorState,
-        username: true
-      }));
-    } */
 
     /* startRegister(username, fullname, imgFile, email, password).then(console.log)
     => navigate login */

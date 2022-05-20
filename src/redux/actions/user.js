@@ -66,7 +66,7 @@ export const startRegister =
       return newUserResp;
       // Mensaje modal con registro exitoso??
       // Navigate to LoginScreen
-      // dispatch(registerUser(userRegistered));
+      // No es una accion para enviarla al reducer.
     } catch (error) {
       return error;
     }
