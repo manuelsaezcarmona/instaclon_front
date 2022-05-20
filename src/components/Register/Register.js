@@ -11,11 +11,12 @@ import { useForm } from '../../hooks/userForm';
 
 // import { startRegister } from '../../redux/actions/user';
 
-export function RegisterScreen() {
+export function Register() {
   //  const dispatch = useDispatch();
   const [formRegisterValues, handleRegisterInputChange] =
     useForm(FORM_INITIAL_STATE);
 
+  // eslint-disable-next-line no-unused-vars
   const [formError, setFormError] = useState({
     username: false,
     fullname: false,
@@ -36,13 +37,29 @@ export function RegisterScreen() {
     e.preventDefault();
     // Validacion de los elementos.
     // con un if de todos los elementos , si seterror >0 => dispatch : mensaje de error
+    // eslint-disable-next-line no-unused-vars
+    const formFields = Object.entries(formRegisterValues);
+    formFields.forEach((field) => {
+      if (!field[1]) {
+        field[1] = true;
+      } else {
+        field[1] = false;
+      }
+    });
 
-    if (!username) {
+    const objFields = Object.fromEntries(formFields);
+
+    console.log(formFields);
+
+    console.log(objFields);
+
+    setFormError(objFields);
+    /*  if (!username) {
       setFormError((prevFormErrorState) => ({
         ...prevFormErrorState,
         username: true
       }));
-    }
+    } */
 
     /* startRegister(username, fullname, imgFile, email, password).then(console.log)
     => navigate login */

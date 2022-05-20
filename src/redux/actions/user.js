@@ -56,7 +56,16 @@ export const startRegister =
   (username, fullname, imgFile, email, password) => async () => {
     try {
       const avatarURL = await uploadFileToCloud(imgFile);
-      await register(username, fullname, avatarURL, email, password);
+      const newUserResp = await register(
+        username,
+        fullname,
+        avatarURL,
+        email,
+        password
+      );
+      return newUserResp;
+      // Mensaje modal con registro exitoso??
+      // Navigate to LoginScreen
       // dispatch(registerUser(userRegistered));
     } catch (error) {
       return error;
