@@ -73,21 +73,21 @@ export function Register() {
   };
 
   return (
-    <div className="login__element">
-      <header className="login__header">
-        <h1 className="login__title logo">PhotoClon</h1>
+    <div className="form-container">
+      <header className="form__header">
+        <h1 className="form__title logo">PhotoClon</h1>
       </header>
-      <div className="login-body">
-        <div className="login-body__imageContainer">
+      <div className="form-body">
+        <div className="form-imageContainer">
           {imgFile === null ? (
             <img
-              className="formpost__image"
+              className="form__image"
               src={pathimg}
               alt="imagen sin cargar"
               accept="image/png, .jpeg, .jpg, image/gif"
             />
           ) : (
-            <img className="formpost__image" src={imgFile} />
+            <img className="form__image" src={imgFile} />
           )}
           <input
             form="login-form"
@@ -109,11 +109,11 @@ export function Register() {
 
         <form
           id="login-form"
-          className="login__form"
+          className="form-block"
           onSubmit={handleRegisterSubmit}
         >
           <input
-            className="register inputText"
+            className="form-element inputText"
             type="text"
             name="username"
             value={username}
@@ -122,7 +122,7 @@ export function Register() {
             onChange={handleRegisterInputChange}
           />
           <input
-            className="register inputText"
+            className="form-element inputText"
             type="text"
             name="fullname"
             value={fullname}
@@ -131,7 +131,7 @@ export function Register() {
             onChange={handleRegisterInputChange}
           />
           <input
-            className="register inputText"
+            className="form-element inputText"
             type="text"
             name="email"
             value={email}
@@ -140,7 +140,7 @@ export function Register() {
             onChange={handleRegisterInputChange}
           />
           <input
-            className="register inputText"
+            className="form-element inputText"
             type="password"
             name="password"
             value={password}
@@ -149,7 +149,7 @@ export function Register() {
             onChange={handleRegisterInputChange}
           />
           <input
-            className="register inputText"
+            className="form-element  inputText"
             type="password"
             name="password2"
             value={password2}
@@ -160,33 +160,30 @@ export function Register() {
           <button className="btn btn--accept" type="submit">
             Regístrate
           </button>
-        </form>
-      </div>
-
-      <div className="footerform">
-        {errorEntries.length !== 0 && (
-          <div className="footerform__errors">
-            <p>Error de validacion para los siguientes campos: </p>
-            {imgFile === null && (
-              <p className="footerform__erroritem">
-                Recuerda subir tu foto de avatar
+          {errorEntries.length !== 0 && (
+            <div className="errors">
+              <p className="errors__title">
+                Error de validacion para los siguientes campos:{' '}
               </p>
-            )}
-            <ul className="footerform__errorlist">
-              {errorEntries.map((errorEntry, index) => (
-                <li key={index} className="footerform__erroritem">
-                  {errorEntry[0]}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-        <p className="login__textremember">
-          ¿Tienes una cuenta?{' '}
-          <Link className="login__link" to="/public/login">
-            Entrar
-          </Link>{' '}
-        </p>
+              {imgFile === null && (
+                <p className="errors__item">Recuerda subir tu foto de avatar</p>
+              )}
+              <ul className="errors__list">
+                {errorEntries.map((errorEntry, index) => (
+                  <li key={index} className="footerform__erroritem">
+                    {errorEntry[0]}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <p className="form__textremember">
+            ¿Tienes una cuenta?{' '}
+            <Link className="login__link" to="/public/login">
+              Entrar
+            </Link>{' '}
+          </p>
+        </form>
       </div>
     </div>
   );

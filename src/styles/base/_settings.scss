@@ -85,6 +85,15 @@ html {
   );
 }
 
+.form-element {
+  height: 4vh;
+  width: 80%;
+  font-size: 0.75rem;
+  margin: 1vh 0vh;
+  padding: 5px;
+  border: solid 1px $gray-normal;
+}
+
 .inputText {
   height: 4vh;
   width: 80%;
