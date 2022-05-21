@@ -1,6 +1,7 @@
-import { getPosts } from '../../services/post.services';
+import { addPost, getPosts } from '../../services/post.services';
 import { types } from '../actiontypes';
 import { uploadFileToCloud } from '../../helpers/uploadfile';
+import { AddPostToUser } from './user';
 
 export const getPostsAll = (posts) => ({
   type: types.postGetAll,
@@ -28,10 +29,13 @@ export const AddPost = (post) => ({
 export const startAddPost = (imgFile, text) => async (dispatch) => {
   try {
     const avatarURL = await uploadFileToCloud(imgFile);
-    const resp = await (avatarURL, text);
+
+    const resp = await addPost(avatarURL, text);
+    console.log(resp);
     if (resp.ok) {
       const { post } = resp;
       dispatch(AddPost(post));
+      dispatch(AddPostToUser(post));
     }
     return resp;
   } catch (error) {

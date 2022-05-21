@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import pathimg from '../../assets/empty.jpg';
 import { useImgData } from '../../hooks/useImgData';
 import { useForm } from '../../hooks/userForm';
+import { startAddPost } from '../../redux/actions/post';
 
 export default function FormPost() {
+  const dispatch = useDispatch();
   const [formAddPostValues, handleAddPostInputChange] = useForm({ text: '' });
 
   const { text } = formAddPostValues;
@@ -46,6 +49,7 @@ export default function FormPost() {
     if (errorEntries.length === 0) {
       if (imgFile !== null) {
         console.log('inicio Añadir post');
+        dispatch(startAddPost(imgFile, text));
       }
     }
   };
