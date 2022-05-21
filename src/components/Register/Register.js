@@ -2,14 +2,13 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from 'react';
 // import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import pathimg from '../../assets/empty.jpg';
 import { REGISTER_FORM_INITIAL_STATE } from '../../constants';
 import { useImgData } from '../../hooks/useImgData';
-// import { uploadFileToCloud } from '../../helpers/uploadfile';
 import { useForm } from '../../hooks/userForm';
 
-// import { startRegister } from '../../redux/actions/user';
+import { startRegister } from '../../redux/actions/user';
 
 export function Register() {
   //  const dispatch = useDispatch();
@@ -17,7 +16,10 @@ export function Register() {
     REGISTER_FORM_INITIAL_STATE
   );
 
-  // eslint-disable-next-line no-unused-vars
+  const navigate = useNavigate();
+
+  const { username, fullname, email, password, password2 } = formRegisterValues;
+
   const [formError, setFormError] = useState({
     username: false,
     fullname: false,
@@ -26,7 +28,9 @@ export function Register() {
     password2: false
   });
 
-  const { username, fullname, email, password, password2 } = formRegisterValues;
+  const errorEntries = Object.entries(formError).filter(
+    (item) => item[1] === true
+  );
 
   const [imgFile, handleFileChange] = useImgData();
 
@@ -34,11 +38,9 @@ export function Register() {
     document.querySelector('#file-selector-toimage').click();
   };
 
-  const handleRegisterSubmit = (e) => {
+  const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     // Validacion de los elementos.
-    // con un if de todos los elementos , si seterror >0 => dispatch : mensaje de error
-
     const formFields = Object.entries(formRegisterValues);
     formFields.forEach((field) => {
       if (!field[1]) {
@@ -49,35 +51,45 @@ export function Register() {
     });
 
     const objFields = Object.fromEntries(formFields);
-
-    console.log(objFields);
-
+    // console.log(objFields);
     setFormError(objFields);
 
-    /* startRegister(username, fullname, imgFile, email, password).then(console.log)
-    => navigate login */
-    // si vengo de la ruta de register
-    // router.push(path de login);
+    // Mirar con Ja porque peta la validacion (errorEntries.length === 0 && imgFile !== null)
+    if (errorEntries.length === 0) {
+      if (imgFile !== null) {
+        console.log('inicio Registro');
+        const registro = await startRegister(
+          username,
+          fullname,
+          imgFile,
+          email,
+          password
+        );
+        console.log(registro);
+        navigate('/login');
+      }
+    }
   };
-  const errorEntries = Object.entries(formError).filter((item) => item[1]);
-  return (
-    <div className="register login__container">
-      <div className="login__element">
-        <h1 className="login__title logo">PhotoClon</h1>
 
-        <form className="login__form" onSubmit={handleRegisterSubmit}>
+  return (
+    <div className="form-container">
+      <header className="form__header">
+        <h1 className="form__title logo">PhotoClon</h1>
+      </header>
+      <div className="form-body">
+        <div className="form-imageContainer">
           {imgFile === null ? (
             <img
-              className="formpost__image"
+              className="form__image"
               src={pathimg}
               alt="imagen sin cargar"
               accept="image/png, .jpeg, .jpg, image/gif"
             />
           ) : (
-            <img className="formpost__image" src={imgFile} />
+            <img className="form__image" src={imgFile} />
           )}
-
           <input
+            form="login-form"
             id="file-selector-toimage"
             type="file"
             name="imageURL"
@@ -85,14 +97,22 @@ export function Register() {
             onChange={handleFileChange}
           />
           <button
+            form="login-form"
             className="btn btn--accept"
             type="button"
             onClick={handleClickPicture}
           >
             Elegir foto
           </button>
+        </div>
+
+        <form
+          id="login-form"
+          className="form-block"
+          onSubmit={handleRegisterSubmit}
+        >
           <input
-            className="register inputText"
+            className="form-element inputText"
             type="text"
             name="username"
             value={username}
@@ -101,7 +121,7 @@ export function Register() {
             onChange={handleRegisterInputChange}
           />
           <input
-            className="register inputText"
+            className="form-element inputText"
             type="text"
             name="fullname"
             value={fullname}
@@ -110,7 +130,7 @@ export function Register() {
             onChange={handleRegisterInputChange}
           />
           <input
-            className="register inputText"
+            className="form-element inputText"
             type="text"
             name="email"
             value={email}
@@ -119,7 +139,7 @@ export function Register() {
             onChange={handleRegisterInputChange}
           />
           <input
-            className="register inputText"
+            className="form-element inputText"
             type="password"
             name="password"
             value={password}
@@ -128,7 +148,7 @@ export function Register() {
             onChange={handleRegisterInputChange}
           />
           <input
-            className="register inputText"
+            className="form-element  inputText"
             type="password"
             name="password2"
             value={password2}
@@ -139,28 +159,31 @@ export function Register() {
           <button className="btn btn--accept" type="submit">
             Regístrate
           </button>
+          {errorEntries.length !== 0 && (
+            <div className="errors">
+              <p className="errors__title">
+                Error de validacion para los siguientes campos:{' '}
+              </p>
+              {imgFile === null && (
+                <p className="errors__item">Recuerda subir tu foto de avatar</p>
+              )}
+              <ul className="errors__list">
+                {errorEntries.map((errorEntry, index) => (
+                  <li key={index} className="errors__item">
+                    {errorEntry[0]}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </form>
-
-        {errorEntries.length !== 0 && (
-          <div>
-            <p>Error de validacion para los siguientes campos: </p>
-            <ul>
-              {errorEntries.map((errorEntry, index) => (
-                <li key={index}>{errorEntry[0]}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        <div className="login__remember">
-          <p className="login__textremember">
-            ¿Tienes una cuenta?{' '}
-            <Link className="register login__link" to="/public/login">
-              Entrar
-            </Link>{' '}
-          </p>
-        </div>
       </div>
+      <p className="form__textremember">
+        ¿Tienes una cuenta?{' '}
+        <Link className="text__link" to="/public/login">
+          Entrar
+        </Link>{' '}
+      </p>
     </div>
   );
 }

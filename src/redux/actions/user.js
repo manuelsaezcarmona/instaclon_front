@@ -51,23 +51,26 @@ export const registerUser = (user) => ({
   payload: user
 });
 
-export const startRegister =
-  // eslint-disable-next-line consistent-return
-  (username, fullname, imgFile, email, password) => async () => {
-    try {
-      const avatarURL = await uploadFileToCloud(imgFile);
-      const newUserResp = await register(
-        username,
-        fullname,
-        avatarURL,
-        email,
-        password
-      );
-      return newUserResp;
-      // Mensaje modal con registro exitoso??
-      // Navigate to LoginScreen
-      // No es una accion para enviarla al reducer.
-    } catch (error) {
-      return error;
-    }
-  };
+// No es una accion para enviarla al reducer.
+export const startRegister = async (
+  username,
+  fullname,
+  imgFile,
+  email,
+  password
+) => {
+  try {
+    const avatarURL = await uploadFileToCloud(imgFile);
+    const newUserResp = await register(
+      username,
+      fullname,
+      avatarURL,
+      email,
+      password
+    );
+    return newUserResp;
+    // Mensaje modal con registro exitoso??
+  } catch (error) {
+    return error;
+  }
+};
