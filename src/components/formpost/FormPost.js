@@ -49,7 +49,6 @@ export default function FormPost() {
       }
     }
   };
-
   return (
     <div className="form-container">
       <div className="formpost__form">
