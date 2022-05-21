@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdOutlineAddComment } from 'react-icons/md';
-import Avatar from '../avatar/Avatar';
+import Avatar from '../Avatar/Avatar';
 // import { post } from '../../services/sampledata';
 
 export function PostCard({ post }) {

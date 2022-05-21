@@ -56,8 +56,17 @@ export const startRegister =
   (username, fullname, imgFile, email, password) => async () => {
     try {
       const avatarURL = await uploadFileToCloud(imgFile);
-      await register(username, fullname, avatarURL, email, password);
-      // dispatch(registerUser(userRegistered));
+      const newUserResp = await register(
+        username,
+        fullname,
+        avatarURL,
+        email,
+        password
+      );
+      return newUserResp;
+      // Mensaje modal con registro exitoso??
+      // Navigate to LoginScreen
+      // No es una accion para enviarla al reducer.
     } catch (error) {
       return error;
     }

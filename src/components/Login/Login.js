@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/userForm';
 import { startLogin } from '../../redux/actions/user';
 
-export function LoginScreen() {
+export function Login() {
   const [formLoginValues, handleLoginInputChange] = useForm({
     email: '',
     password: ''

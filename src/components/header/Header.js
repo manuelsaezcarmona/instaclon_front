@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiOutlineEdit } from 'react-icons/ai';
-import Avatar from '../avatar/Avatar';
+import Avatar from '../Avatar/Avatar';
 
 function Header({ user }) {
   return (

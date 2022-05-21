@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { GoDiffAdded } from 'react-icons/go';
 import { AiTwotoneHome } from 'react-icons/ai';
 import { RiLogoutBoxRFill } from 'react-icons/ri';
-import Avatar from '../avatar/Avatar';
+import Avatar from '../Avatar/Avatar';
 import { startLogout } from '../../redux/actions/user';
 
 export function NavBar() {

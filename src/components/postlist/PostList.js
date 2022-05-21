@@ -1,5 +1,5 @@
 import React from 'react';
-import { PosThumbnail } from '../posts/postumbnail';
+import { PosThumbnail } from '../Posts/PostThumbnail';
 
 export default function PostList({ user }) {
   return (
