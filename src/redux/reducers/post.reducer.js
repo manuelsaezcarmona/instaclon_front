@@ -22,7 +22,6 @@ export const postReducer = (state = initialState, action) => {
         posts: action.payload
       };
     case types.postAdd:
-      console.log(action.payload);
       return {
         ...state,
         posts: [...state.posts, action.payload]

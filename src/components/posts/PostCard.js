@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdOutlineAddComment } from 'react-icons/md';
+import Modal from '../Modal/Modal';
+
 import Avatar from '../Avatar/Avatar';
-// import { post } from '../../services/sampledata';
 
 export function PostCard({ post }) {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModalVisibility = () => {
+    setShowModal((prevState) => !prevState);
+  };
+
   return (
     <article className="post-card">
       <header className="postcard__header">
@@ -13,7 +20,7 @@ export function PostCard({ post }) {
       <div className="postcard__imagecontainer">
         <img className="postcard__image" src={post.imageURL} alt={post.text} />
         <div className="post-card__tool-bar">
-          <MdOutlineAddComment />
+          <MdOutlineAddComment onClick={handleModalVisibility} />
         </div>
       </div>
       <div className="postcard__textcontainer">
@@ -30,6 +37,7 @@ export function PostCard({ post }) {
           </li>
         ))}
       </ul>
+      {showModal && <Modal handleVisibility={handleModalVisibility} />}
     </article>
   );
 }

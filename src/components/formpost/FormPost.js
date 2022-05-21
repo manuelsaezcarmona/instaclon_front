@@ -48,7 +48,6 @@ export default function FormPost() {
 
     if (errorEntries.length === 0) {
       if (imgFile !== null) {
-        console.log('inicio Añadir post');
         dispatch(startAddPost(imgFile, text));
       }
     }

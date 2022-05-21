@@ -31,7 +31,7 @@ export const startAddPost = (imgFile, text) => async (dispatch) => {
     const avatarURL = await uploadFileToCloud(imgFile);
 
     const resp = await addPost(avatarURL, text);
-    console.log(resp);
+
     if (resp.ok) {
       const { post } = resp;
       dispatch(AddPost(post));

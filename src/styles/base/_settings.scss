@@ -44,6 +44,25 @@ html {
   background-color: $white-oficial-background;
 }
 
+.modal {
+  background-color: rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1;
+}
+
+.modal.content {
+  height: 30vh;
+}
+
 .logo {
   font-family: $logofont;
   font-weight: normal;
