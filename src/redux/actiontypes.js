@@ -5,6 +5,7 @@ export const types = {
 
   userGet: '@user/Get',
   userUpdate: '@user/Update',
+  userAddPost: '@user/AddPost',
 
   postAdd: '@post/Add',
   postDelete: '@post/Delete',

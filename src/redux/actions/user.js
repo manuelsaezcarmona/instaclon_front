@@ -46,9 +46,9 @@ export const startCheckUser = () => async (dispatch) => {
   }
 };
 
-export const registerUser = (user) => ({
-  type: types.userRegister,
-  payload: user
+export const AddPostToUser = (post) => ({
+  type: types.userAddPost,
+  payload: post
 });
 
 // No es una accion para enviarla al reducer.

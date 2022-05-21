@@ -30,10 +30,13 @@ export const userReducer = (state = initialState, action) => {
         user: {},
         logged: false
       };
-    case types.userRegister: {
+    case types.userAddPost: {
       return {
         ...state,
-        user: action.payload
+        user: {
+          ...state.user,
+          posts: [...state.user.posts, action.payload]
+        }
       };
     }
     default:
