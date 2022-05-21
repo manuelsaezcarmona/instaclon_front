@@ -73,11 +73,12 @@ export function Register() {
   };
 
   return (
-    <div className="register login__container">
-      <div className="login__element">
+    <div className="login__element">
+      <header className="login__header">
         <h1 className="login__title logo">PhotoClon</h1>
-
-        <form className="login__form" onSubmit={handleRegisterSubmit}>
+      </header>
+      <div className="login-body">
+        <div className="login-body__imageContainer">
           {imgFile === null ? (
             <img
               className="formpost__image"
@@ -88,8 +89,8 @@ export function Register() {
           ) : (
             <img className="formpost__image" src={imgFile} />
           )}
-
           <input
+            form="login-form"
             id="file-selector-toimage"
             type="file"
             name="imageURL"
@@ -97,12 +98,20 @@ export function Register() {
             onChange={handleFileChange}
           />
           <button
+            form="login-form"
             className="btn btn--accept"
             type="button"
             onClick={handleClickPicture}
           >
             Elegir foto
           </button>
+        </div>
+
+        <form
+          id="login-form"
+          className="login__form"
+          onSubmit={handleRegisterSubmit}
+        >
           <input
             className="register inputText"
             type="text"
@@ -152,28 +161,32 @@ export function Register() {
             Regístrate
           </button>
         </form>
+      </div>
 
+      <div className="footerform">
         {errorEntries.length !== 0 && (
-          <div>
+          <div className="footerform__errors">
             <p>Error de validacion para los siguientes campos: </p>
-            <ul>
+            {imgFile === null && (
+              <p className="footerform__erroritem">
+                Recuerda subir tu foto de avatar
+              </p>
+            )}
+            <ul className="footerform__errorlist">
               {errorEntries.map((errorEntry, index) => (
-                <li key={index}>{errorEntry[0]}</li>
+                <li key={index} className="footerform__erroritem">
+                  {errorEntry[0]}
+                </li>
               ))}
             </ul>
           </div>
         )}
-
-        {imgFile === null && <p>Recuerda subir tu foto de avatar</p>}
-
-        <div className="login__remember">
-          <p className="login__textremember">
-            ¿Tienes una cuenta?{' '}
-            <Link className="register login__link" to="/public/login">
-              Entrar
-            </Link>{' '}
-          </p>
-        </div>
+        <p className="login__textremember">
+          ¿Tienes una cuenta?{' '}
+          <Link className="login__link" to="/public/login">
+            Entrar
+          </Link>{' '}
+        </p>
       </div>
     </div>
   );
