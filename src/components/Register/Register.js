@@ -2,14 +2,13 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from 'react';
 // import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import pathimg from '../../assets/empty.jpg';
 import { REGISTER_FORM_INITIAL_STATE } from '../../constants';
 import { useImgData } from '../../hooks/useImgData';
-// import { uploadFileToCloud } from '../../helpers/uploadfile';
 import { useForm } from '../../hooks/userForm';
 
-// import { startRegister } from '../../redux/actions/user';
+import { startRegister } from '../../redux/actions/user';
 
 export function Register() {
   //  const dispatch = useDispatch();
@@ -17,7 +16,10 @@ export function Register() {
     REGISTER_FORM_INITIAL_STATE
   );
 
-  // eslint-disable-next-line no-unused-vars
+  const navigate = useNavigate();
+
+  const { username, fullname, email, password, password2 } = formRegisterValues;
+
   const [formError, setFormError] = useState({
     username: false,
     fullname: false,
@@ -26,7 +28,10 @@ export function Register() {
     password2: false
   });
 
-  const { username, fullname, email, password, password2 } = formRegisterValues;
+  const errorEntries = Object.entries(formError).filter(
+    (item) => item[1] === true
+  );
+  console.log(errorEntries);
 
   const [imgFile, handleFileChange] = useImgData();
 
@@ -37,8 +42,6 @@ export function Register() {
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
     // Validacion de los elementos.
-    // con un if de todos los elementos , si seterror >0 => dispatch : mensaje de error
-
     const formFields = Object.entries(formRegisterValues);
     formFields.forEach((field) => {
       if (!field[1]) {
@@ -49,17 +52,26 @@ export function Register() {
     });
 
     const objFields = Object.fromEntries(formFields);
-
-    console.log(objFields);
-
+    // console.log(objFields);
     setFormError(objFields);
 
-    /* startRegister(username, fullname, imgFile, email, password).then(console.log)
-    => navigate login */
-    // si vengo de la ruta de register
-    // router.push(path de login);
+    // Mirar con Ja porque peta la validacion (errorEntries.length === 0 && imgFile !== null)
+    if (errorEntries.length === 0) {
+      if (imgFile !== null) {
+        console.log('Registrandome');
+        const registro = startRegister(
+          username,
+          fullname,
+          imgFile,
+          email,
+          password
+        );
+        console.log(registro);
+        navigate('/login');
+      }
+    }
   };
-  const errorEntries = Object.entries(formError).filter((item) => item[1]);
+
   return (
     <div className="register login__container">
       <div className="login__element">
@@ -151,6 +163,8 @@ export function Register() {
             </ul>
           </div>
         )}
+
+        {imgFile === null && <p>Recuerda subir tu foto de avatar</p>}
 
         <div className="login__remember">
           <p className="login__textremember">

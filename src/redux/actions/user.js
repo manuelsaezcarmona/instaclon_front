@@ -1,5 +1,5 @@
-import { uploadFileToCloud } from '../../helpers/uploadfile';
-import { getUser, logUser, register } from '../../services/user.services';
+// import { uploadFileToCloud } from '../../helpers/uploadfile';
+import { getUser, logUser } from '../../services/user.services';
 import { types } from '../actiontypes';
 
 export const login = (user) => ({
@@ -51,10 +51,17 @@ export const registerUser = (user) => ({
   payload: user
 });
 
-export const startRegister =
-  // eslint-disable-next-line consistent-return
-  (username, fullname, imgFile, email, password) => async () => {
-    try {
+export const startRegister = (username, fullname, imgFile, email, password) => {
+  const enunciado = `Registro de usuario:HECHO,
+    usuario: ${username}
+    Nombre Completo: ${fullname}
+    avatar: ${imgFile.length}
+    email: ${email}
+    password: ${password}`;
+
+  return enunciado;
+};
+/*  try {
       const avatarURL = await uploadFileToCloud(imgFile);
       const newUserResp = await register(
         username,
@@ -69,5 +76,4 @@ export const startRegister =
       // No es una accion para enviarla al reducer.
     } catch (error) {
       return error;
-    }
-  };
+    } */
