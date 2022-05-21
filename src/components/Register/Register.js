@@ -170,21 +170,21 @@ export function Register() {
               )}
               <ul className="errors__list">
                 {errorEntries.map((errorEntry, index) => (
-                  <li key={index} className="footerform__erroritem">
+                  <li key={index} className="errors__item">
                     {errorEntry[0]}
                   </li>
                 ))}
               </ul>
             </div>
           )}
-          <p className="form__textremember">
-            ¿Tienes una cuenta?{' '}
-            <Link className="login__link" to="/public/login">
-              Entrar
-            </Link>{' '}
-          </p>
         </form>
       </div>
+      <p className="form__textremember">
+        ¿Tienes una cuenta?{' '}
+        <Link className="text__link" to="/public/login">
+          Entrar
+        </Link>{' '}
+      </p>
     </div>
   );
 }

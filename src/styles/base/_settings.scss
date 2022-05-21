@@ -29,6 +29,7 @@ $gray-normal: #979797;
 $blueprimary: #4b91f7;
 $bluenormal: #367af6;
 $bluedarktransp: rgba(54, 122, 246, 0.25);
+$error-background: rgb(255, 181, 203);
 
 // Effects
 $shadow-container: inset 0 0 0.5em rgba(0, 0, 0, 0.1),
@@ -87,7 +88,7 @@ html {
 
 .form-element {
   height: 4vh;
-  width: 80%;
+  width: 100%;
   font-size: 0.75rem;
   margin: 1vh 0vh;
   padding: 5px;
@@ -96,7 +97,7 @@ html {
 
 .inputText {
   height: 4vh;
-  width: 80%;
+  width: 100%;
   font-size: 0.8rem;
   margin: 1vh 0vh;
   padding: 5px;
@@ -105,6 +106,12 @@ html {
 
 .linkpage {
   text-decoration: none;
+}
+
+.text__link,
+.text__link:visited {
+  text-decoration: none;
+  color: $bluenormal;
 }
 
 .avatar {

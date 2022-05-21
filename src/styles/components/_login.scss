@@ -5,59 +5,67 @@
   justify-content: center;
   height: 100vh;
 }
-.login-body {
-  display: flex;
-  align-items: center;
-}
-/* .login__container {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.login__element {
+.form-body {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 0 2vw;
+}
 
-  background-color: #ffffff;
+.form-imageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-block {
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  padding: 20px 0px;
-}
-
-.login__title {
-  margin: 0;
-}
-
-.login__form {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
   align-items: center;
-  justify-content: center;
-  width: 80%;
-  height: 50%;
 }
 
-.login_input {
-  height: 4vh;
-  width: 80%;
-  font-size: 0.75rem;
-  margin: 1vh 0vh;
-  padding: 5px;
-  border: solid 1px $gray-normal;
+.form__image {
+  width: 100%;
 }
 
-.login__link,
-.login__link:visited {
-  text-decoration: none;
-  color: $bluenormal;
+.errors {
+  background-color: $error-background;
+  margin-top: 10px;
+  padding: 10px;
+  box-shadow: $shadow-container;
+}
+
+.errors__list {
+  list-style: none;
+}
+
+.errors__list {
+  display: flex;
+  gap: 10px;
+}
+
+.errors__item {
+  color: red;
+}
+
+.form__textremember {
+  margin-top: 10px;
 }
 
 @media only screen and (min-width: 768px) {
-  .login__element {
-    border: red solid 2px;
+  .form-body {
+    flex-direction: row;
   }
-} */
+  .form-imageContainer,
+  .form-block {
+    width: 50vw;
+  }
+}
