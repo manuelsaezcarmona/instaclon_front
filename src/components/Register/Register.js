@@ -31,7 +31,6 @@ export function Register() {
   const errorEntries = Object.entries(formError).filter(
     (item) => item[1] === true
   );
-  console.log(errorEntries);
 
   const [imgFile, handleFileChange] = useImgData();
 
@@ -39,7 +38,7 @@ export function Register() {
     document.querySelector('#file-selector-toimage').click();
   };
 
-  const handleRegisterSubmit = (e) => {
+  const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     // Validacion de los elementos.
     const formFields = Object.entries(formRegisterValues);
@@ -58,8 +57,8 @@ export function Register() {
     // Mirar con Ja porque peta la validacion (errorEntries.length === 0 && imgFile !== null)
     if (errorEntries.length === 0) {
       if (imgFile !== null) {
-        console.log('Registrandome');
-        const registro = startRegister(
+        console.log('inicio Registro');
+        const registro = await startRegister(
           username,
           fullname,
           imgFile,
