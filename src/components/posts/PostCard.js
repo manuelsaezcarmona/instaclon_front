@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { MdOutlineAddComment } from 'react-icons/md';
-import Modal from '../Modal/Modal';
 
 import Avatar from '../Avatar/Avatar';
+import AddComment from '../AddComment/AddComment';
 
 export function PostCard({ post }) {
   const [showModal, setShowModal] = useState(false);
@@ -37,7 +37,7 @@ export function PostCard({ post }) {
           </li>
         ))}
       </ul>
-      {showModal && <Modal handleVisibility={handleModalVisibility} />}
+      {showModal && <AddComment handleVisibility={handleModalVisibility} />}
     </article>
   );
 }

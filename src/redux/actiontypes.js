@@ -15,5 +15,8 @@ export const types = {
   commentAdd: '@comment/Add',
   commentDelete: '@comment/Delete',
   commentUpdate: '@comment/Update',
-  commentGet: '@comment/Get'
+  commentGet: '@comment/Get',
+
+  uiOpenModal: '@ui/OpenModal',
+  uiCloseModal: '@ui/CloseModal'
 };

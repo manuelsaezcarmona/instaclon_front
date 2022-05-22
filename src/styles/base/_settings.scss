@@ -30,6 +30,11 @@ $blueprimary: #4b91f7;
 $bluenormal: #367af6;
 $bluedarktransp: rgba(54, 122, 246, 0.25);
 $error-background: rgb(255, 181, 203);
+$prueba-color: linear-gradient(
+  180deg,
+  rgba(255, 181, 5, 1) 0%,
+  rgba(246, 35, 7, 1) 35%
+);
 
 // Effects
 $shadow-container: inset 0 0 0.5em rgba(0, 0, 0, 0.1),
@@ -59,8 +64,9 @@ html {
   z-index: 1;
 }
 
-.modal.content {
+.modal__content {
   height: 30vh;
+  background-color: $white-background;
 }
 
 .logo {
@@ -103,6 +109,7 @@ html {
     rgba(255, 181, 5, 1) 0%,
     rgba(246, 35, 7, 1) 35%
   );
+  background-origin: border-box;
 }
 
 .form-element {
