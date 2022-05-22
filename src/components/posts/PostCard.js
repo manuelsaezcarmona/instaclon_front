@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { MdOutlineAddComment } from 'react-icons/md';
 
+import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '../Avatar/Avatar';
 import AddComment from '../AddComment/AddComment';
+import { uiOpenModal } from '../../redux/actions/ui';
 
 export function PostCard({ post }) {
-  const [showModal, setShowModal] = useState(false);
+  //  const [showModal, setShowModal] = useState(false);
+
+  const { modalOpen } = useSelector((state) => state.ui);
+  const dispatch = useDispatch();
 
   const handleModalVisibility = () => {
-    setShowModal((prevState) => !prevState);
+    dispatch(uiOpenModal());
   };
 
   return (
@@ -37,7 +42,7 @@ export function PostCard({ post }) {
           </li>
         ))}
       </ul>
-      {showModal && <AddComment handleVisibility={handleModalVisibility} />}
+      {modalOpen && <AddComment />}
     </article>
   );
 }
