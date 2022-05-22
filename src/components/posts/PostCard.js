@@ -1,14 +1,14 @@
 import React from 'react';
 import { MdOutlineAddComment } from 'react-icons/md';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Avatar from '../Avatar/Avatar';
-import AddComment from '../AddComment/AddComment';
+// import AddComment from '../AddComment/AddComment';
 import { uiOpenModal } from '../../redux/actions/ui';
 import { setActivePost } from '../../redux/actions/post';
 
 export function PostCard({ post }) {
-  const { modalOpen } = useSelector((state) => state.ui);
+  // const { modalOpen } = useSelector((state) => state.ui);
 
   const dispatch = useDispatch();
 
@@ -43,7 +43,6 @@ export function PostCard({ post }) {
           </li>
         ))}
       </ul>
-      {modalOpen && <AddComment />}
     </article>
   );
 }
