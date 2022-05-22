@@ -1,4 +1,4 @@
-.modal__container {
+.modal {
   background-color: rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   align-items: center;
@@ -14,9 +14,6 @@
 }
 
 .modal__content {
-  width: 40vw;
   height: 30vh;
-  background-color: #979797;
-  font-size: 24px;
-  margin-bottom: 24px;
+  background-color: $white-background;
 }

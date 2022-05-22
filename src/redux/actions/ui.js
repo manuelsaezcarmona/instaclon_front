@@ -1,8 +1,8 @@
 import { types } from '../actiontypes';
 
-export const uiOpenModal = () => ({
+export const uiOpenModal = (idmodal) => ({
   type: types.uiOpenModal,
-  payload: true
+  payload: idmodal
 });
 
 export const uiCloseModal = () => ({

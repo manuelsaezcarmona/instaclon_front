@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PostCard } from '../Posts/PostCard';
 import AddComment from '../AddComment/AddComment';
 import { startGetPostsAll } from '../../redux/actions/post';
+import ModalDelete from '../ModalDelete/ModalDelete';
 
 export function Main() {
   const { posts } = useSelector((store) => store.post);
@@ -15,7 +16,8 @@ export function Main() {
 
   return (
     <div className="main-posts-container">
-      {modalOpen && <AddComment />}
+      {modalOpen === 'addModal' && <AddComment />}
+      {modalOpen === 'deleteModal' && <ModalDelete />}
       <ul className="posts__list">
         {posts.map((post) => (
           <li key={`postid-${post.id}`}>

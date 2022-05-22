@@ -13,9 +13,13 @@ export function PostCard({ post }) {
 
   const handleModalAddComment = () => {
     dispatch(setActivePost(post));
-    dispatch(uiOpenModal());
+    dispatch(uiOpenModal('addModal'));
   };
 
+  const handleModalDeletePost = () => {
+    dispatch(setActivePost(post));
+    dispatch(uiOpenModal('deleteModal'));
+  };
   return (
     <article className="post-card">
       <header className="postcard__header">
@@ -26,7 +30,9 @@ export function PostCard({ post }) {
         <img className="postcard__image" src={post.imageURL} alt={post.text} />
         <div className="post-card__tool-bar">
           <MdOutlineAddComment onClick={handleModalAddComment} />
-          {post.userID.username === user.username && <MdDeleteOutline />}
+          {post.userID.username === user.username && (
+            <MdDeleteOutline onClick={handleModalDeletePost} />
+          )}
         </div>
       </div>
       <div className="postcard__textcontainer">

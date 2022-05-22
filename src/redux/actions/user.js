@@ -80,3 +80,8 @@ export const addCommentToUser = (comment) => ({
   type: types.userAddComment,
   payload: comment
 });
+
+export const deletePostToUser = (postid) => ({
+  type: types.userDeletePost,
+  payload: postid
+});

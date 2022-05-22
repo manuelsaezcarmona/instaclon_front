@@ -1,4 +1,4 @@
-import { addPost, getPosts } from '../../services/post.services';
+import { addPost, getPosts, deletePost } from '../../services/post.services';
 import { types } from '../actiontypes';
 import { uploadFileToCloud } from '../../helpers/uploadfile';
 import { AddPostToUser } from './user';
@@ -74,45 +74,19 @@ export const addCommentToPost = (content, activePost) => async (dispatch) => {
   }
 };
 
-/**  respuesta de addComment
- * {
-    "ok": true,
-    "msg": "create comment",
-    "newComment": {
-        "content": "Suelen estar en china",
-        "userIDcomment": "628159ffbabbd093ae7bd1a1",
-        "postIDcomment": "6289260618dfe071cb93876e",
-        "createdAt": "2022-05-22T09:55:16.609Z",
-        "updatedAt": "2022-05-22T09:55:16.609Z",
-        "__v": 0,
-        "id": "628a08846cf9d2a69928231e"
-    }
-}
+export const deleteOnePost = (postID) => ({
+  type: types.postDelete,
+  payload: postID
+});
 
-respuesta de getcommentbyID
+export const startPostDelete = (postid) => async (dispatch) => {
+  try {
+    const resp = await deletePost(postid);
 
-{
-    "ok": true,
-    "comment": {
-        "content": "Y bien hecho al horno!!",
-        "userIDcomment": {
-            "username": "manu",
-            "fullname": "Manuel Saez",
-            "email": "manu@manu.com",
-            "avatarURL": "https://avatars.githubusercontent.com/u/70754764?v=4",
-            "id": "628159ffbabbd093ae7bd1a1"
-        },
-        "postIDcomment": {
-            "text": "Tocaba merluza en salsa verde",
-            "createdAt": "2022-05-15T19:54:56.012Z",
-            "updatedAt": "2022-05-15T20:03:15.410Z",
-            "id": "62815a90babbd093ae7bd1a4"
-        },
-        "createdAt": "2022-05-15T20:00:01.813Z",
-        "updatedAt": "2022-05-15T20:00:01.813Z",
-        "__v": 0,
-        "id": "62815bc1babbd093ae7bd1ae"
-    }
-}
-
- */
+    dispatch(deleteOnePost(postid));
+    console.log(resp);
+    return resp;
+  } catch (error) {
+    return error;
+  }
+};
