@@ -9,7 +9,7 @@ export default function AddComment() {
   const [content, setcontent] = useState('');
   const { activePost } = useSelector((state) => state.post);
 
-  const handleAddCommenttInputChange = (e) => {
+  const handleAddCommentInputChange = (e) => {
     setcontent(e.target.value);
   };
 
@@ -31,7 +31,7 @@ export default function AddComment() {
           name="content"
           value={content}
           placeholder="Escribe tu post"
-          onChange={handleAddCommenttInputChange}
+          onChange={handleAddCommentInputChange}
         />
       </div>
       <button

@@ -1,14 +1,13 @@
 import React from 'react';
-import { MdOutlineAddComment } from 'react-icons/md';
+import { MdOutlineAddComment, MdDeleteOutline } from 'react-icons/md';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '../Avatar/Avatar';
-// import AddComment from '../AddComment/AddComment';
 import { uiOpenModal } from '../../redux/actions/ui';
 import { setActivePost } from '../../redux/actions/post';
 
 export function PostCard({ post }) {
-  // const { modalOpen } = useSelector((state) => state.ui);
+  const { user } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
 
@@ -27,6 +26,7 @@ export function PostCard({ post }) {
         <img className="postcard__image" src={post.imageURL} alt={post.text} />
         <div className="post-card__tool-bar">
           <MdOutlineAddComment onClick={handleModalAddComment} />
+          {post.userID.username === user.username && <MdDeleteOutline />}
         </div>
       </div>
       <div className="postcard__textcontainer">
