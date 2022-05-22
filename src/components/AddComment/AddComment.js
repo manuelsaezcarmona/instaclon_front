@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCommentToPost } from '../../redux/actions/post';
 import { uiCloseModal } from '../../redux/actions/ui';
+import { addCommentToUser } from '../../redux/actions/user';
 
 export default function AddComment() {
   const [content, setcontent] = useState('');
@@ -15,7 +16,8 @@ export default function AddComment() {
   const dispatch = useDispatch();
 
   const handleAddComment = async () => {
-    dispatch(addCommentToPost(content, activePost));
+    const comment = await dispatch(addCommentToPost(content, activePost));
+    dispatch(addCommentToUser(comment));
     dispatch(uiCloseModal());
   };
 

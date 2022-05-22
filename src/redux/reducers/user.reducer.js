@@ -39,6 +39,15 @@ export const userReducer = (state = initialState, action) => {
         }
       };
     }
+    case types.userAddComment: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          comments: [...state.user.comments, action.payload]
+        }
+      };
+    }
     default:
       return state;
   }

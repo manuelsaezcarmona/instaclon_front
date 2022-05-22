@@ -35,7 +35,6 @@ export const postReducer = (state = initialState, action) => {
       };
     }
     case types.postUpdate: {
-      console.log(action.payload);
       return {
         ...state,
         // eslint-disable-next-line no-confusing-arrow

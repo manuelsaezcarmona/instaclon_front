@@ -30,8 +30,9 @@ export const startLogin = (email, password) => async (dispatch) => {
     const resp = await getUser();
 
     dispatch(login(resp.user));
+    return resp;
   } catch (error) {
-    // ToDo manejo de error ¿hago un logout?
+    return error;
   }
 };
 
@@ -74,3 +75,8 @@ export const startRegister = async (
     return error;
   }
 };
+
+export const addCommentToUser = (comment) => ({
+  type: types.userAddComment,
+  payload: comment
+});

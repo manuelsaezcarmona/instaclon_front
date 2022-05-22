@@ -67,10 +67,8 @@ export const addCommentToPost = (content, activePost) => async (dispatch) => {
       ...activePost,
       comments: [...activePost.comments, comment]
     };
-
     dispatch(updatePost(activePost));
-
-    return resp;
+    return comment;
   } catch (error) {
     return error;
   }
