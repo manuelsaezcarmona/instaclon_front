@@ -5,14 +5,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '../Avatar/Avatar';
 import AddComment from '../AddComment/AddComment';
 import { uiOpenModal } from '../../redux/actions/ui';
+import { setActivePost } from '../../redux/actions/post';
 
 export function PostCard({ post }) {
-  //  const [showModal, setShowModal] = useState(false);
-
   const { modalOpen } = useSelector((state) => state.ui);
+
   const dispatch = useDispatch();
 
-  const handleModalVisibility = () => {
+  const handleModalAddComment = () => {
+    dispatch(setActivePost(post));
     dispatch(uiOpenModal());
   };
 
@@ -25,7 +26,7 @@ export function PostCard({ post }) {
       <div className="postcard__imagecontainer">
         <img className="postcard__image" src={post.imageURL} alt={post.text} />
         <div className="post-card__tool-bar">
-          <MdOutlineAddComment onClick={handleModalVisibility} />
+          <MdOutlineAddComment onClick={handleModalAddComment} />
         </div>
       </div>
       <div className="postcard__textcontainer">

@@ -6,11 +6,14 @@ export const types = {
   userGet: '@user/Get',
   userUpdate: '@user/Update',
   userAddPost: '@user/AddPost',
+  userAddComment: '@user/AddComment',
 
   postAdd: '@post/Add',
   postDelete: '@post/Delete',
   postUpdate: '@post/Update',
   postGetAll: '@post/GetAll',
+  postAddComment: '@post/AddComment',
+  postSetActive: '@post/SetActive',
 
   commentAdd: '@comment/Add',
   commentDelete: '@comment/Delete',

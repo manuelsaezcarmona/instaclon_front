@@ -11,7 +11,8 @@ const initialState = {
       createdAt: '2022-05-12T07:19:32.567+00:00',
       updatedAt: '2022-05-13T09:55:57.200+00:00'
     } */
-  ]
+  ],
+  activePost: {}
 };
 
 export const postReducer = (state = initialState, action) => {
@@ -26,6 +27,13 @@ export const postReducer = (state = initialState, action) => {
         ...state,
         posts: [...state.posts, action.payload]
       };
+
+    case types.postSetActive: {
+      return {
+        ...state,
+        activePost: action.payload
+      };
+    }
 
     default:
       return state;

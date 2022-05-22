@@ -49,6 +49,7 @@ export default function FormPost() {
     if (errorEntries.length === 0) {
       if (imgFile !== null) {
         dispatch(startAddPost(imgFile, text));
+        navigate('/');
       }
     }
   };
