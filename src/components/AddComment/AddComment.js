@@ -1,8 +1,8 @@
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { addCommentToPost } from '../../redux/actions/post';
 import { uiCloseModal } from '../../redux/actions/ui';
-import { addComment } from '../../services/comment.services';
 
 export default function AddComment() {
   const [content, setcontent] = useState('');
@@ -11,12 +11,11 @@ export default function AddComment() {
   const handleAddCommenttInputChange = (e) => {
     setcontent(e.target.value);
   };
-  // const { modalOpen } = useSelector((state) => state.ui);
+
   const dispatch = useDispatch();
 
   const handleAddComment = async () => {
-    console.log(content, activePost);
-    await addComment(content, activePost.id);
+    dispatch(addCommentToPost(content, activePost));
     dispatch(uiCloseModal());
   };
 

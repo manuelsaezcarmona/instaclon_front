@@ -2,7 +2,7 @@ import { addPost, getPosts } from '../../services/post.services';
 import { types } from '../actiontypes';
 import { uploadFileToCloud } from '../../helpers/uploadfile';
 import { AddPostToUser } from './user';
-import { addComment } from '../../services/comment.services';
+import { addComment, getcommentbyID } from '../../services/comment.services';
 
 export const getPostsAll = (posts) => ({
   type: types.postGetAll,
@@ -49,22 +49,27 @@ export const setActivePost = (post) => ({
   payload: post
 });
 
-export const addCommentToPost = (content, activePost) => async () => {
+export const updatePost = (post) => ({
+  type: types.postUpdate,
+  payload: post
+});
+
+export const addCommentToPost = (content, activePost) => async (dispatch) => {
   try {
     const resp = await addComment(content, activePost.id);
     const { newComment } = resp;
-    console.log(newComment);
+    const commentReceived = await getcommentbyID(newComment.id);
 
-    // esto es un updateSinglePost
+    const { comment } = commentReceived;
 
+    // esto es un AddCommentSinglePost
     activePost = {
       ...activePost,
-      comments: [...activePost.comments, newComment]
+      comments: [...activePost.comments, comment]
     };
 
-    if (resp.ok) {
-      // Vienen los dispatch Añadir comment to post y añadir comment to user.
-    }
+    dispatch(updatePost(activePost));
+
     return resp;
   } catch (error) {
     return error;

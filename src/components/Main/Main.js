@@ -16,7 +16,7 @@ export function Main() {
     <div className="main-posts-container">
       <ul className="posts__list">
         {posts.map((post) => (
-          <li key={post.id}>
+          <li key={`postid-${post.id}`}>
             <PostCard post={post} />
           </li>
         ))}

@@ -34,6 +34,16 @@ export const postReducer = (state = initialState, action) => {
         activePost: action.payload
       };
     }
+    case types.postUpdate: {
+      console.log(action.payload);
+      return {
+        ...state,
+        // eslint-disable-next-line no-confusing-arrow
+        posts: state.posts.map((post) =>
+          post.id === action.payload.id ? action.payload : post
+        )
+      };
+    }
 
     default:
       return state;
