@@ -1,20 +1,19 @@
-/* eslint-disable jsx-a11y/aria-role */
-/* eslint-disable func-names */
-/* eslint-disable dot-notation */
 import React from 'react';
-import Button from './Button/Button';
 
-import styles from './Modal.module.scss';
-
-export default function ({ handleVisibility = () => {} }) {
+export default function Modal({
+  typeButtons = 'Accept',
+  message = 'Texto por default'
+}) {
   return (
-    <div className={styles['modal__container']}>
-      <div className={styles['modal__content']}>This is a modal</div>
-      <Button
-        label="Close the modal!"
-        role="danger"
-        handleClick={handleVisibility}
-      />
+    <div className="modal">
+      <div className="modal__content">
+        <p className="modal__text">{message}</p>
+        <div className="modal__buttons">
+          <button className="btn btn--accept" type="button">
+            Borrar
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

@@ -5,8 +5,11 @@
   padding: 2% 5%;
   width: 97vw;
   border-bottom: solid 1px $gray-normal;
+  background-color: $white-oficial-background;
   position: sticky;
   // Posible definicion de top
+  top: 0;
+  z-index: 2;
 }
 
 .navbar__logotext {

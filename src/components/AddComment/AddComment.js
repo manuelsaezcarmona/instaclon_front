@@ -34,20 +34,22 @@ export default function AddComment() {
           onChange={handleAddCommentInputChange}
         />
       </div>
-      <button
-        className="btn btn--accept"
-        type="button"
-        onClick={handleAddComment}
-      >
-        Comenta!!
-      </button>
-      <button
-        id="cancel-button"
-        className="btn btn--cancel"
-        onClick={() => dispatch(uiCloseModal())}
-      >
-        Cancela
-      </button>
+      <div className="modal__buttons">
+        <button
+          className="btn btn--accept"
+          type="button"
+          onClick={handleAddComment}
+        >
+          Comenta!!
+        </button>
+        <button
+          id="cancel-button"
+          className="btn btn--cancel"
+          onClick={() => dispatch(uiCloseModal())}
+        >
+          Cancela
+        </button>
+      </div>
     </div>
   );
 }
