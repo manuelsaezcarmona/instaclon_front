@@ -98,3 +98,28 @@ export const getCommentsByPost = async (postID) => {
     throw new Error('Could not get the comments by post');
   }
 };
+
+export const getcommentbyID = async (commentID) => {
+  // http://localhost:4000/comment/id/62815bc1babbd093ae7bd1ae
+  const baseURL = process.env.REACT_APP_API_URL;
+  const domain = 'comment';
+  const query = `id/${commentID}`;
+
+  const token = localStorage.getItem('token');
+  const msg = 'No se encuentra el token';
+
+  if (!token) {
+    return msg;
+  }
+  const headers = { Authorization: `Bearer ${token}` };
+  try {
+    const response = await fetch(`${baseURL}/${domain}/${query}`, {
+      method: 'GET',
+      headers
+    });
+
+    return response.json();
+  } catch (error) {
+    throw new Error('Could not get the comment by ID');
+  }
+};

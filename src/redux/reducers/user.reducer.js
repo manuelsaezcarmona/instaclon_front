@@ -30,10 +30,31 @@ export const userReducer = (state = initialState, action) => {
         user: {},
         logged: false
       };
-    case types.userRegister: {
+    case types.userAddPost: {
       return {
         ...state,
-        user: action.payload
+        user: {
+          ...state.user,
+          posts: [...state.user.posts, action.payload]
+        }
+      };
+    }
+    case types.userAddComment: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          comments: [...state.user.comments, action.payload]
+        }
+      };
+    }
+    case types.userDeletePost: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          posts: state.user.posts.filter((post) => post.id !== action.payload)
+        }
       };
     }
     default:

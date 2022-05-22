@@ -30,8 +30,9 @@ export const startLogin = (email, password) => async (dispatch) => {
     const resp = await getUser();
 
     dispatch(login(resp.user));
+    return resp;
   } catch (error) {
-    // ToDo manejo de error ¿hago un logout?
+    return error;
   }
 };
 
@@ -46,9 +47,9 @@ export const startCheckUser = () => async (dispatch) => {
   }
 };
 
-export const registerUser = (user) => ({
-  type: types.userRegister,
-  payload: user
+export const AddPostToUser = (post) => ({
+  type: types.userAddPost,
+  payload: post
 });
 
 // No es una accion para enviarla al reducer.
@@ -74,3 +75,13 @@ export const startRegister = async (
     return error;
   }
 };
+
+export const addCommentToUser = (comment) => ({
+  type: types.userAddComment,
+  payload: comment
+});
+
+export const deletePostToUser = (postid) => ({
+  type: types.userDeletePost,
+  payload: postid
+});
