@@ -23,5 +23,6 @@ export const types = {
   commentGet: '@comment/Get',
 
   uiOpenModal: '@ui/OpenModal',
-  uiCloseModal: '@ui/CloseModal'
+  uiCloseModal: '@ui/CloseModal',
+  uiSetFilter: '@ui/SetFilter'
 };

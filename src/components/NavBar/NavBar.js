@@ -6,18 +6,20 @@ import { AiTwotoneHome, AiFillFilter, AiOutlineFilter } from 'react-icons/ai';
 import { RiLogoutBoxRFill } from 'react-icons/ri';
 import Avatar from '../Avatar/Avatar';
 import { startLogout } from '../../redux/actions/user';
+import { uiSetFilter } from '../../redux/actions/ui';
 
 export function NavBar() {
   const { user } = useSelector((store) => store.user);
+  const { filter } = useSelector((store) => store.ui);
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(startLogout());
   };
 
-  const filter = false;
-
   const handleFilter = () => {
-    console.log('handleFilter');
+    dispatch(uiSetFilter(filter));
+    // setear filter desde ui reducer
+    // filtrar posts desde actionposts
   };
 
   return (
