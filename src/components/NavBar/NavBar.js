@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { GoDiffAdded } from 'react-icons/go';
-import { AiTwotoneHome } from 'react-icons/ai';
+import { AiTwotoneHome, AiFillFilter, AiOutlineFilter } from 'react-icons/ai';
 import { RiLogoutBoxRFill } from 'react-icons/ri';
 import Avatar from '../Avatar/Avatar';
 import { startLogout } from '../../redux/actions/user';
@@ -12,6 +12,12 @@ export function NavBar() {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(startLogout());
+  };
+
+  const filter = false;
+
+  const handleFilter = () => {
+    console.log('handleFilter');
   };
 
   return (
@@ -42,6 +48,13 @@ export function NavBar() {
           </li>
           <li className="navbar__item navbar__link">
             <RiLogoutBoxRFill onClick={handleLogout} />
+          </li>
+          <li className="navbar__item navbar__link">
+            {filter ? (
+              <AiFillFilter onClick={handleFilter} />
+            ) : (
+              <AiOutlineFilter onClick={handleFilter} />
+            )}
           </li>
         </ul>
       </div>
