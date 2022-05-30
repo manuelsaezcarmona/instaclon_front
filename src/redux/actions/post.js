@@ -16,6 +16,7 @@ export const startGetPostsAll = () => async (dispatch) => {
       return result.msg;
     }
     dispatch(getPostsAll(result.posts));
+    dispatch(setFilteredPost(result.posts));
     return result.posts;
   } catch (error) {
     return error.message;
@@ -84,9 +85,16 @@ export const startPostDelete = (postid) => async (dispatch) => {
     const resp = await deletePost(postid);
 
     dispatch(deleteOnePost(postid));
-    console.log(resp);
     return resp;
   } catch (error) {
     return error;
   }
+};
+
+export const setFilteredPost = (posts) => {
+  const postFiltered = posts.filter((item) => item.comments.length === 0);
+  return {
+    type: types.postSetFiltered,
+    payload: postFiltered
+  };
 };
