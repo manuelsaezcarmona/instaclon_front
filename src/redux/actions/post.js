@@ -16,6 +16,7 @@ export const startGetPostsAll = () => async (dispatch) => {
       return result.msg;
     }
     dispatch(getPostsAll(result.posts));
+    dispatch(setAllPost(result.posts));
     dispatch(setFilteredPost(result.posts));
     return result.posts;
   } catch (error) {
@@ -98,3 +99,8 @@ export const setFilteredPost = (posts) => {
     payload: postFiltered
   };
 };
+
+export const setAllPost = (posts) => ({
+  type: types.postSetAllposts,
+  payload: posts
+});

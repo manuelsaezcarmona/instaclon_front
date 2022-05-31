@@ -17,8 +17,9 @@ export function NavBar() {
   };
 
   const handleFilter = () => {
-    dispatch(uiSetFilter(filter));
     // setear filter desde ui reducer
+    dispatch(uiSetFilter(filter));
+
     // filtrar posts desde actionposts
   };
 

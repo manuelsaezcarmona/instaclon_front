@@ -13,7 +13,8 @@ const initialState = {
     } */
   ],
   activePost: {},
-  filteredPosts: []
+  filteredPosts: [],
+  allPosts: []
 };
 
 export const postReducer = (state = initialState, action) => {
@@ -54,6 +55,12 @@ export const postReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredPosts: action.payload
+      };
+    }
+    case types.postSetAllposts: {
+      return {
+        ...state,
+        allPosts: action.payload
       };
     }
     default:

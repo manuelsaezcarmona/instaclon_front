@@ -17,6 +17,7 @@ export const types = {
   postAddComment: '@post/AddComment',
   postSetActive: '@post/SetActive',
   postSetFiltered: '@post/SetFiltered',
+  postSetAllposts: '@post/SetAllPosts',
 
   commentAdd: '@comment/Add',
   commentDelete: '@comment/Delete',
