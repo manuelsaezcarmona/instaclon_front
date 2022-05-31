@@ -1,7 +1,8 @@
 import { types } from '../actiontypes';
 
 const initialState = {
-  modalOpen: false
+  modalOpen: false,
+  filter: false
 };
 
 export const uiReducer = (state = initialState, action) => {
@@ -15,6 +16,12 @@ export const uiReducer = (state = initialState, action) => {
       return {
         ...state,
         modalOpen: action.payload
+      };
+
+    case types.uiSetFilter:
+      return {
+        ...state,
+        filter: action.payload
       };
 
     default:

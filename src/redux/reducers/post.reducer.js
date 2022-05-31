@@ -12,7 +12,9 @@ const initialState = {
       updatedAt: '2022-05-13T09:55:57.200+00:00'
     } */
   ],
-  activePost: {}
+  activePost: {},
+  filteredPosts: [],
+  allPosts: []
 };
 
 export const postReducer = (state = initialState, action) => {
@@ -49,7 +51,18 @@ export const postReducer = (state = initialState, action) => {
         posts: state.posts.filter((post) => post.id !== action.payload)
       };
     }
-
+    case types.postSetFiltered: {
+      return {
+        ...state,
+        filteredPosts: action.payload
+      };
+    }
+    case types.postSetAllposts: {
+      return {
+        ...state,
+        allPosts: action.payload
+      };
+    }
     default:
       return state;
   }

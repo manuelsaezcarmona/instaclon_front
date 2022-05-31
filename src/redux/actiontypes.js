@@ -16,6 +16,8 @@ export const types = {
   postGetAll: '@post/GetAll',
   postAddComment: '@post/AddComment',
   postSetActive: '@post/SetActive',
+  postSetFiltered: '@post/SetFiltered',
+  postSetAllposts: '@post/SetAllPosts',
 
   commentAdd: '@comment/Add',
   commentDelete: '@comment/Delete',
@@ -23,5 +25,6 @@ export const types = {
   commentGet: '@comment/Get',
 
   uiOpenModal: '@ui/OpenModal',
-  uiCloseModal: '@ui/CloseModal'
+  uiCloseModal: '@ui/CloseModal',
+  uiSetFilter: '@ui/SetFilter'
 };

@@ -2,16 +2,25 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { GoDiffAdded } from 'react-icons/go';
-import { AiTwotoneHome } from 'react-icons/ai';
+import { AiTwotoneHome, AiFillFilter, AiOutlineFilter } from 'react-icons/ai';
 import { RiLogoutBoxRFill } from 'react-icons/ri';
 import Avatar from '../Avatar/Avatar';
 import { startLogout } from '../../redux/actions/user';
+import { uiSetFilter } from '../../redux/actions/ui';
 
 export function NavBar() {
   const { user } = useSelector((store) => store.user);
+  const { filter } = useSelector((store) => store.ui);
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(startLogout());
+  };
+
+  const handleFilter = () => {
+    // setear filter desde ui reducer
+    dispatch(uiSetFilter(filter));
+
+    // filtrar posts desde actionposts
   };
 
   return (
@@ -42,6 +51,13 @@ export function NavBar() {
           </li>
           <li className="navbar__item navbar__link">
             <RiLogoutBoxRFill onClick={handleLogout} />
+          </li>
+          <li className="navbar__item navbar__link">
+            {filter ? (
+              <AiFillFilter onClick={handleFilter} />
+            ) : (
+              <AiOutlineFilter onClick={handleFilter} />
+            )}
           </li>
         </ul>
       </div>

@@ -9,3 +9,8 @@ export const uiCloseModal = () => ({
   type: types.uiCloseModal,
   payload: false
 });
+
+export const uiSetFilter = (filter) => ({
+  type: types.uiSetFilter,
+  payload: !filter
+});
