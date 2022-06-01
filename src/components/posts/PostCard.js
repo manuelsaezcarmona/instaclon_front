@@ -5,8 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '../Avatar/Avatar';
 import { uiOpenModal } from '../../redux/actions/ui';
 import { setActivePost } from '../../redux/actions/post';
+import LazyImagePost from './ImagePost';
 
-export function PostCard({ post }) {
+export default function PostCard({ post }) {
   const { user } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export function PostCard({ post }) {
         <p className="postcard__fullname">{post.userID.fullname}</p>
       </header>
       <div className="postcard__imagecontainer">
-        <img className="postcard__image" src={post.imageURL} alt={post.text} />
+        <LazyImagePost post={post} />
         <div className="post-card__tool-bar">
           <MdOutlineAddComment onClick={handleModalAddComment} />
           {post.userID.username === user.username && (

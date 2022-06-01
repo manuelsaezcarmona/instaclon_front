@@ -44,6 +44,13 @@ export function NavBar() {
               <GoDiffAdded />
             </NavLink>
           </li>
+          <li className="navbar__item navbar__link">
+            {filter ? (
+              <AiFillFilter onClick={handleFilter} />
+            ) : (
+              <AiOutlineFilter onClick={handleFilter} />
+            )}
+          </li>
           <li className="navbar__item">
             <NavLink className="navbar__link linkpage" to="/user">
               <Avatar user={user} size="small" />
@@ -51,13 +58,6 @@ export function NavBar() {
           </li>
           <li className="navbar__item navbar__link">
             <RiLogoutBoxRFill onClick={handleLogout} />
-          </li>
-          <li className="navbar__item navbar__link">
-            {filter ? (
-              <AiFillFilter onClick={handleFilter} />
-            ) : (
-              <AiOutlineFilter onClick={handleFilter} />
-            )}
           </li>
         </ul>
       </div>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { PostCard } from '../Posts/PostCard';
+import PostCard from '../Posts/PostCard';
 import AddComment from '../AddComment/AddComment';
 import { getPostsAll, startGetPostsAll } from '../../redux/actions/post';
 import ModalDelete from '../ModalDelete/ModalDelete';
