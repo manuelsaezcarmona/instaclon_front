@@ -10,25 +10,7 @@ export function ImagePost({ post }) {
 export default function LazyImagePost({ post }) {
   const elementRef = useRef();
 
-  const show = useObserver({ elementRef });
-
-  /*  useEffect(() => {
-    const whenChange = (entries, observer) => {
-      const element = entries[0];
-
-      if (element.isIntersecting) {
-        setshow(true);
-        observer.disconnect();
-      }
-      return () => observer.disconnect();
-    };
-
-    const observer = new IntersectionObserver(whenChange, {
-      rootMargin: '200px'
-    });
-
-    observer.observe(elementRef.current);
-  }); */
+  const show = useObserver({ elementRef, distance: '200px' });
 
   return (
     <div ref={elementRef}>

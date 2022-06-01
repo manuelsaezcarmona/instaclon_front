@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const useObserver = ({ elementRef }) => {
+export const useObserver = ({ elementRef, distance = '100px' }) => {
   const [show, setshow] = useState();
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export const useObserver = ({ elementRef }) => {
     };
 
     const observer = new IntersectionObserver(whenChange, {
-      rootMargin: '200px'
+      rootMargin: distance
     });
 
     observer.observe(elementRef.current);
