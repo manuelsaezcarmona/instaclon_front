@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
+import { useObserver } from '../../hooks/useObserver';
 
 export function ImagePost({ post }) {
   return (
@@ -7,19 +8,19 @@ export function ImagePost({ post }) {
 }
 
 export default function LazyImagePost({ post }) {
-  // eslint-disable-next-line no-unused-vars
-  const [show, setshow] = useState();
-
   const elementRef = useRef();
 
-  useEffect(() => {
+  const show = useObserver({ elementRef });
+
+  /*  useEffect(() => {
     const whenChange = (entries, observer) => {
       const element = entries[0];
-      console.log(element.isIntersecting);
+
       if (element.isIntersecting) {
         setshow(true);
         observer.disconnect();
       }
+      return () => observer.disconnect();
     };
 
     const observer = new IntersectionObserver(whenChange, {
@@ -27,7 +28,7 @@ export default function LazyImagePost({ post }) {
     });
 
     observer.observe(elementRef.current);
-  });
+  }); */
 
   return (
     <div ref={elementRef}>
